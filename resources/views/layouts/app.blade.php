@@ -1,221 +1,170 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ouest France Immo</title>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>ImmoBenin</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+  @vite('resources/css/app.css')
+  <!-- Favicons -->
+  <link href="{{ asset('client/img/favicon.png') }}" rel="icon">
+  <link href="{{ asset('client/img/apple-touch-icon.png')}}" rel="apple-touch-icon">
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="{{ asset('client/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+  <link href="{{ asset('client/vendor/bootstrap-icons/bootstrap-icons.css') }}" rel="stylesheet">
+  <link href="{{ asset('client/vendor/aos/aos.css') }}" rel="stylesheet">
+  <link href="{{ asset('client/vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet">
+  <link href="{{ asset('client/vendor/glightbox/css/glightbox.min.css') }}" rel="stylesheet">
+  <link href="{{ asset('client/vendor/swiper/swiper-bundle.min.css') }}" rel="stylesheet">
+
+  <!-- Main CSS File -->
+  <link href="{{asset('client/css/main.css')}}" rel="stylesheet">
 </head>
 
-<body class="bg-gray-100">
-    <!-- Header -->
-    <header class="bg-white py-4 shadow">
-        <div class="container mx-auto flex justify-between items-center">
-            <div class="text-lg font-bold">
-                ouestfrance-immo.com
-            </div>
-            <div>
-                <a href="#" class="text-blue-500">Déposez votre annonce</a>
-                <a href="#" class="ml-4 text-blue-500">Mon compte</a>
-            </div>
-        </div>
-    </header>
+<body class="index-page">
 
-    <!-- Hero Section -->
-    <section class="bg-white py-8">
-        <div class="container mx-auto text-center">
-            <h1 class="text-3xl font-bold mb-4">Trouvez le bien de vos rêves</h1>
-            <p class="mb-4">Parmi nos 200,893 annonces immobilières</p>
-            <div class="bg-gray-100 p-4 rounded-lg shadow-md inline-block">
-                <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
-                    <div>
-                        <label for="type" class="block mb-2">Type</label>
-                        <select id="type" class="w-full p-2 border rounded">
-                            <option value="achat">Achat</option>
-                            <option value="location">Location</option>
-                        </select>
-                    </div>
-                    <div>
-                        <label for="localisation" class="block mb-2">Où ?</label>
-                        <input type="text" id="localisation" class="w-full p-2 border rounded" placeholder="Ville, code postal ou département">
-                    </div>
-                    <div>
-                        <label for="prix" class="block mb-2">Prix</label>
-                        <input type="text" id="prix" class="w-full p-2 border rounded" placeholder="Prix max">
-                    </div>
-                    <div class="flex items-end">
-                        <button class="bg-blue-500 text-white p-2 rounded w-full">Rechercher</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+  <header id="header" class="header d-flex align-items-center fixed-top">
+    <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
 
-    <!-- Annonces Immobilières -->
-    <section class="py-8">
-        <div class="container mx-auto">
-            <h2 class="text-2xl font-bold mb-4">Nos biens immobiliers</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <!-- Example property card -->
-                <div class="bg-white rounded-lg shadow-md p-4">
-                    <img src="https://via.placeholder.com/300x200" alt="Property Image" class="w-full h-48 object-cover rounded-lg mb-4">
-                    <h3 class="text-lg font-bold">Appartement à Rennes</h3>
-                    <p class="text-gray-600">T3 - 75m² - 3 pièces</p>
-                    <p class="text-blue-500 font-bold">230,000 €</p>
-                </div>
-                <!-- Add more property cards as needed -->
-            </div>
-        </div>
-    </section>
+      <a href="index.html" class="logo d-flex align-items-center">
+        <!-- Uncomment the line below if you also wish to use an image logo -->
+        <!-- <img src="assets/img/logo.png" alt=""> -->
+        <h1 class="sitename">ImmoBenin</h1>
+      </a>
+      <nav id="navmenu" class="navmenu">
+        <ul>
+          <li><a href="{{route('home')}}" class="active">Accueil</a></li>
+          <li class="dropdown"><a href="#"><span>A Louer</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+            <ul>
+              <li><a href="">Appartement à louer</a></li>
+              <li><a href="#">Maison à louer</a></li>
+              <li><a href="#">Bureaux, Boutique, Magasin à louer</a></li>
+              <li><a href="#">Deep Dropdown 4</a></li>
+              <li><a href="#">Deep Dropdown 5</a></li>
+            </ul>
+          </li>
+          <li class="dropdown"><a href="#"><span>A Vendre</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+            <ul>
+              <li><a href="#">Appartement à vendre</a></li>
+              <li><a href="#">Maison à vendre</a></li>
+              <li><a href="#">Bureaux, Boutique, Magasin à vendre</a></li>
+              <li><a href="#">Deep Dropdown 4</a></li>
+              <li><a href="#">Deep Dropdown 5</a></li>
+            </ul>
+          </li>
+          <li><a href="{{route('about')}}">About</a></li>
+          <li><a href="{{route('contact')}}">Contact</a></li>
+          <li><a href="{{route('publier')}}">Publier</a></li>
 
-    <!-- Immobilier dans les grandes villes de l'Ouest -->
-    <section class="bg-gray-100 py-8">
-        <div class="container mx-auto">
-            <h2 class="text-2xl font-bold mb-4">L'immobilier dans les grandes villes de l'Ouest</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <div class="text-center">
-                    <h3 class="text-lg font-bold">Immobilier Brest</h3>
-                    <ul class="text-gray-600">
-                        <li>Prix m² appartement</li>
-                        <li>Prix m² maison</li>
-                        <li>Estimation immobilière</li>
-                        <li>Quartier et centre-ville</li>
-                        <li>Immobilier neuf</li>
-                    </ul>
-                </div>
-                <div class="text-center">
-                    <h3 class="text-lg font-bold">Immobilier Caen</h3>
-                    <ul class="text-gray-600">
-                        <li>Prix m² appartement</li>
-                        <li>Prix m² maison</li>
-                        <li>Estimation immobilière</li>
-                        <li>Quartier et centre-ville</li>
-                        <li>Immobilier neuf</li>
-                    </ul>
-                </div>
-                <div class="text-center">
-                    <h3 class="text-lg font-bold">Immobilier Rouen</h3>
-                    <ul class="text-gray-600">
-                        <li>Prix m² appartement</li>
-                        <li>Prix m² maison</li>
-                        <li>Estimation immobilière</li>
-                        <li>Quartier et centre-ville</li>
-                        <li>Immobilier neuf</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
+        </ul>
+        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+      </nav>
+    </div>
+  </header>
 
-    <!-- Guides et Accompagnements -->
-    <section class="py-8">
-        <div class="container mx-auto">
-            <h2 class="text-2xl font-bold mb-4">Ouestfrance-immo.com vous guide</h2>
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
-                <div class="text-center bg-white p-4 rounded-lg shadow-md">
-                    <h3 class="text-lg font-bold">Déjà 6000 avis</h3>
-                </div>
-                <div class="text-center bg-white p-4 rounded-lg shadow-md">
-                    <h3 class="text-lg font-bold">Estimation</h3>
-                </div>
-                <div class="text-center bg-white p-4 rounded-lg shadow-md">
-                    <h3 class="text-lg font-bold">Prix de l'immobilier</h3>
-                </div>
-                <div class="text-center bg-white p-4 rounded-lg shadow-md">
-                    <h3 class="text-lg font-bold">Annuaire</h3>
-                </div>
-            </div>
-        </div>
-    </section>
+  <main class="main">
+    @yield('content')
+  </main>
 
-    <!-- Accompagnement -->
-    <section class="bg-gray-100 py-8">
-        <div class="container mx-auto">
-            <h2 class="text-2xl font-bold mb-4">Ouestfrance-immo.com vous accompagne</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <div class="bg-white p-4 rounded-lg shadow-md">
-                    <h3 class="text-lg font-bold">Une Question immo ?</h3>
-                    <p class="text-gray-600">Contactez nos experts pour répondre à toutes vos questions immobilières.</p>
-                    <a href="#" class="text-blue-500">Découvrir ></a>
-                </div>
-                <div class="bg-white p-4 rounded-lg shadow-md">
-                    <h3 class="text-lg font-bold">Estimez vos mensualités de prêt immobilier</h3>
-                    <p class="text-gray-600">Simulez votre financement gratuitement.</p>
-                    <a href="#" class="text-blue-500">Simuler ></a>
-                </div>
-                <div class="bg-white p-4 rounded-lg shadow-md">
-                    <h3 class="text-lg font-bold">Investir dans un appartement neuf à Nantes</h3>
-                    <p class="text-gray-600">Découvrez les programmes immobiliers neufs à Nantes.</p>
-                    <a href="#" class="text-blue-500">Découvrir ></a>
-                </div>
-            </div>
-        </div>
-    </section>
+  <footer id="footer" class="footer dark-background">
 
-    <!-- Immobilier des départements de l'Ouest -->
-    <section class="py-8">
-        <div class="container mx-auto">
-            <h2 class="text-2xl font-bold mb-4">Immobilier des départements de l'Ouest</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <div class="bg-white p-4 rounded-lg shadow-md">
-                    <h3 class="text-lg font-bold">IMMOBILIER ILLE-ET-VILAINE (35)</h3>
-                </div>
-                <div class="bg-white p-4 rounded-lg shadow-md">
-                    <h3 class="text-lg font-bold">IMMOBILIER MORBIHAN (56)</h3>
-                </div>
-                <div class="bg-white p-4 rounded-lg shadow-md">
-                    <h3 class="text-lg font-bold">IMMOBILIER LOIRE-ATLANTIQUE (44)</h3>
-                </div>
-                <div class="bg-white p-4 rounded-lg shadow-md">
-                    <h3 class="text-lg font-bold">IMMOBILIER VENDÉE (85)</h3>
-                </div>
-                <div class="bg-white p-4 rounded-lg shadow-md">
-                    <h3 class="text-lg font-bold">IMMOBILIER CALVADOS (14)</h3>
-                </div>
-            </div>
+    <div class="container footer-top">
+      <div class="row gy-4">
+        <div class="col-lg-4 col-md-6 footer-about">
+          <a href="index.html" class="logo d-flex align-items-center">
+            <span class="sitename">ImmoBenin</span>
+          </a>
+          <div class="footer-contact pt-3">
+            <p>A108 Adam Street</p>
+            <p>New York, NY 535022</p>
+            <p class="mt-3"><strong>Phone:</strong> <span>+1 5589 55488 55</span></p>
+            <p><strong>Email:</strong> <span>info@example.com</span></p>
+          </div>
+          <div class="social-links d-flex mt-4">
+            <a href=""><i class="bi bi-twitter-x"></i></a>
+            <a href=""><i class="bi bi-facebook"></i></a>
+            <a href=""><i class="bi bi-instagram"></i></a>
+            <a href=""><i class="bi bi-linkedin"></i></a>
+          </div>
         </div>
-    </section>
 
-    <!-- Footer -->
-    <footer class="bg-gray-800 py-8">
-        <div class="container mx-auto text-white">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <div>
-                    <h3 class="text-lg font-bold mb-2">Annonces immo Ouest</h3>
-                    <ul>
-                        <li>Immobilier Bretagne</li>
-                        <li>Immobilier Normandie</li>
-                        <li>Immobilier Loire Atlantique</li>
-                        <li>Immobilier Vendée</li>
-                        <li>Immobilier Particulier</li>
-                    </ul>
-                </div>
-                <div>
-                    <h3 class="text-lg font-bold mb-2">Locations immobilières</h3>
-                    <ul>
-                        <li>Location Appartement</li>
-                        <li>Location Maison</li>
-                        <li>Location Studio</li>
-                        <li>Location par Ville</li>
-                        <li>Location par Quartier</li>
-                    </ul>
-                </div>
-                <div>
-                    <h3 class="text-lg font-bold mb-2">Portail de Groupe</h3>
-                    <ul>
-                        <li>Annonces Voiture occasion</li>
-                        <li>Annonces Motos</li>
-                        <li>Voitures Neuves</li>
-                        <li>Brevets & Locaux</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="mt-6 text-center">
-                <p>&copy; 2024 Media Ouest France - Tous droits réservés</p>
-            </div>
+        <div class="col-lg-2 col-md-3 footer-links">
+          <h4>Useful Links</h4>
+          <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About us</a></li>
+            <li><a href="#">Services</a></li>
+          </ul>
         </div>
-    </footer>
+
+        <div class="col-lg-2 col-md-3 footer-links">
+          <h4>Our Services</h4>
+          <ul>
+            <li><a href="#">Web Design</a></li>
+            <li><a href="#">Web Development</a></li>
+            <li><a href="#">Product Management</a></li>
+          </ul>
+        </div>
+
+        <div class="col-lg-2 col-md-3 footer-links">
+          <h4>Hic solutasetp</h4>
+          <ul>
+            <li><a href="#">Excepturi dignissimos</a></li>
+            <li><a href="#">Suscipit distinctio</a></li>
+          </ul>
+        </div>
+
+        <div class="col-lg-2 col-md-3 footer-links">
+          <h4>Nobis illum</h4>
+          <ul>
+            <li><a href="#">Ipsam</a></li>
+            <li><a href="#">Laudantium dolorum</a></li>
+            <li><a href="#">Dinera</a></li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="container copyright text-center mt-4">
+      <p>© <span>Copyright</span> <strong class="px-1 sitename">ImmoBenin</strong> <span>All Rights Reserved</span></p>
+      <div class="credits">
+        <!-- All the links in the footer should remain intact. -->
+        <!-- You can delete the links only if you've purchased the pro version. -->
+        <!-- Licensing information: https://bootstrapmade.com/license/ -->
+        <!-- Purchase the pro version with working PHP/AJAX contact form: [buy-url] -->
+        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+      </div>
+    </div>
+
+  </footer>
+
+  <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Preloader -->
+  <div id="preloader"></div>
+
+  <!-- Vendor JS Files -->
+  <script src="{{ asset('client/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+  <script src="{{ asset('client/vendor/php-email-form/validate.js')}}"></script>
+  <script src="{{ asset('client/vendor/aos/aos.js')}}"></script>
+  <script src="{{ asset('client/vendor/glightbox/js/glightbox.min.js')}}"></script>
+  <script src="{{ asset('client/vendor/imagesloaded/imagesloaded.pkgd.min.js')}}"></script>
+  <script src="{{ asset('client/vendor/isotope-layout/isotope.pkgd.min.js')}}"></script>
+  <script src="{{ asset('client/vendor/swiper/swiper-bundle.min.js')}}"></script>
+  <script src="{{ asset('client/vendor/purecounter/purecounter_vanilla.js')}}"></script>
+
+  <!-- Main JS File -->
+  <script src="{{asset('client/js/main.js')}}"></script>
+
 </body>
-
 </html>
+

@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="bg-gray-100 font-sans leading-normal tracking-normal">
+    <div class="bg-gray-100 font-sans leading-normal tracking-normal">
     <div class="min-h-screen flex flex-col">
         <div class="container mx-auto flex flex-grow mt-8">
             <aside class="w-1/4 bg-white p-6 min-h-screen rounded-lg shadow">
@@ -24,10 +24,10 @@
                     <div class="py-12 w-3/4 bg-white p-6 rounded-lg shadow ml-6">
                         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 space-y-6">
                             <div class="p-4 sm:p-8 bg-white shadow sm:rounded-lg">
-                                <div class="max-w-xl">
-                                        @include('profile.partials.update-profile-information-form')
-                                    </div>
+                            <div class="max-w-xl">
+                                    @include('profile.partials.update-profile-information-form')
                                 </div>
+                            </div>
 
                             <div class="p-4 sm:p-8 bg-white shadow sm:rounded-lg">
                                 <div class="max-w-xl">
@@ -46,4 +46,4 @@
             </main>
         </div>
     </div>
-@endSection
+@endsection

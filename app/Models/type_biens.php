@@ -14,6 +14,6 @@ class type_biens extends Model
     ];
 
     public function biens(){
-        return $this->hasMany(biens::class);
+        return $this->hasMany(Biens::class);
     }
 }

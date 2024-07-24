@@ -5,29 +5,30 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class biens extends Model
+class Biens extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'type_id',
-        'ville_id',
-        'code_postal',
+        'nom',
         'adresse',
         'description',
+        'code_postal',
         'superficie',
         'nombre_pieces',
+        'prix',
+        'type_id',
+        'ville_id',
         'document',
         'statut',
-        'prix',
         'user_id',
     ];
 
-    public function image(){
-        return $this->hasMany(image::class);
+    public function images(){
+        return $this->hasMany(Images::class);
     }
 
     public function annonces(){
-        return $this->hasMany(annonces::class);
+        return $this->hasMany(Annonce::class, 'biens_id');
     }
 
     public function User(){
@@ -37,6 +38,6 @@ class biens extends Model
         return $this->belongsTo(type_biens::class);
     }
     public function ville(){
-        return $this->belongsTo(ville::class);
+        return $this->belongsTo(villes::class);
     }
 }

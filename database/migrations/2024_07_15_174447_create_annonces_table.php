@@ -13,9 +13,11 @@ return new class extends Migration
     {
         Schema::create('annonces', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('biens_id');
             $table->string('type');
-            $table->foreignId('biens_id')->constrained('biens')->onDelete('cascade');
             $table->timestamps();
+
+            $table->foreign('biens_id')->references('id')->on('biens')->onDelete('cascade');
         });
     }
 
