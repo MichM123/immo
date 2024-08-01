@@ -7,6 +7,9 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
+use App\Models\User;
+use App\Models\Biens;
+use App\Models\Images;
 use Illuminate\View\View;
 
 class ProfileController extends Controller
@@ -14,9 +17,18 @@ class ProfileController extends Controller
     /**
      * Display the user's profile form.
      */
-    public function edit(): View
+
+    public function show(){
+        $user = Auth::user();
+        $biens = Biens::where('user_id',$user->id)->get();
+        $images = Images::all();
+        return view('profile.edit', compact('user', 'biens', 'images'));
+    }
+    public function edit(Request $request): View
     {
-        return view('profile.edit');
+        return view('profile.profile', [
+            'user' => $request->user(),
+        ]);
     }
 
     /**

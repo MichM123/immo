@@ -37,6 +37,9 @@
                     <a class="p-8 text-indigo-600 hover:text-indigo-500" href="{{ route('password.request') }}">
                         {{ __('Forgot your password?') }}
                     </a>
+                    <a class="p-8 text-indigo-600 hover:text-indigo-500" href="{{ route('register') }}">
+                        {{ __('inscription') }}
+                    </a>
                 @endif
 
                 

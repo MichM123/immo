@@ -2,7 +2,7 @@
 
 @section('content')
     <!-- Main Content -->
-    <main class="container mx-auto px-4 py-6 flex space-x-6">
+    <main class="container-fluid mx-auto px-4 py-6 flex space-x-6">
         <!-- Map -->
         <div class="w-2/3 bg-black-100 rounded shadow-lg p-4">
             <div id="map" class="w-full h-96"></div>

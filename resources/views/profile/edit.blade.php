@@ -1,191 +1,142 @@
+
 <!doctype html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title> Professionals Resume HTML Bootstrap Template | Smarteyeapps.com</title>
 
-    <link rel="shortcut icon" href="{{asset('profile/images/fav.jpg')}}">
-    <link rel="stylesheet" href="{{asset('profile/css/bootstrap.min.css')}}">
-    <link rel="stylesheet" href="{{asset('profile/css/fontawsom-all.min.css')}}">
-    <link rel="stylesheet" type="text/css" href="{{asset('profile/css/style.css')}}" />
+    <link rel="shortcut icon" href="{{asset('user/images/fav.jpg')}}">
+    <link rel="stylesheet" href="{{asset('user/css/bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{asset('user/css/fontawsom-all.min.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('user/css/style.css')}}" />
+    @vite('resources/css/app.css')
+
 </head>
 
 <body>
-    <div class="container-fluid overcover">
-        <div class="container profile-box">
-            <div class="top-cover">
-                <div class="covwe-inn">
-                    <div class="row no-margin">
-                        <div class="col-md-3 img-c">
-                            <img src="assets/images/profile.jpg" alt="">
-                        </div>
-                        <div class="col-md-9 tit-det">
-                            <h2>Angelina Smith / Web Designer</h2>
-                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,</p>
-                        </div>
+    <div class="profile-box container overcover">
+        <div class="top-cover">
+            <div class="covwe-inn">
+                <div class="row no-margin">
+                    <div class="col-md-3 img-c">
+                        <img src="{{asset('storage/' . Auth::user()->identite) }}" class="rounded-full" alt="">
+                    </div>
+                    <div class="col-md-9 tit-det">
+                        <h2>{{ Auth::user()->nom }} {{ Auth::user()->prenom }}</h2>
+                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quo fuga libero vel inventore quidem illo porro cum, magni ipsum maxime tempore iusto consectetur dolorem voluptatem corporis dolores ad. Perferendis, debitis.</p>
                     </div>
                 </div>
             </div>
+        </div>
             <ul class="nav nav-tabs" id="myTab" role="tablist">
               <li class="nav-item">
                 <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Home</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Profile</a>
+                <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Info</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" id="profile-tab" data-toggle="tab" href="#resume" role="tab" aria-controls="profile" aria-selected="false">Resume</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" id="profile-tab" data-toggle="tab" href="#gallery" role="tab" aria-controls="profile" aria-selected="false">Portfolio</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Contact</a>
+                <a class="nav-link" id="profile-tab" data-toggle="tab" href="#gallery" role="tab" aria-controls="profile" aria-selected="false">Mes Biens</a>
               </li>
             </ul>
-            <div class="tab-content" id="myTabContent">
-                <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                    <div class="row no-margin home-det">
-                        <div class="col-md-4 big-img"> 
-                            <h4 class="ltitle">Hobbies</h4>
-                            <ul class="hoby row no-margin">
-                                <li><i class="fas fa-pencil-alt"></i> <br> Writing</li>
-                                <li><i class="fas fa-bicycle"></i> <br> Cycling</li>
-                                <li><i class="fas fa-futbol"></i> <br> Football</li>
-                                <li><i class="fas fa-film"></i><br> Movies</li>
-                                <li><i class="fas fa-plane-departure"></i> <br>Travel</li>
-                                <li><i class="fas fa-gamepad"></i> <br> Games</li>
-                            </ul>
-                            <h4 class="ltitle">Referencess</h4>
+        <div class="tab-content" id="myTabContent">
+            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                <div class="row no-margin home-det">
+                    <div class="col-md-4 big-img">
+                         
+                        <h4 class="ltitle">Hobbies</h4>
+                        <ul class="hoby row no-margin">
+                            <li><i class="fas fa-pencil-alt"></i> <br> Writing</li>
+                            <li><i class="fas fa-bicycle"></i> <br> Cycling</li>
+                            <li><i class="fas fa-futbol"></i> <br> Football</li>
+                            <li><i class="fas fa-film"></i><br> Movies</li>
+                            <li><i class="fas fa-plane-departure"></i> <br>Travel</li>
+                            <li><i class="fas fa-gamepad"></i> <br> Games</li>
+                        </ul>
+                          <h4 class="ltitle">Referencess</h4>
 
-                            <div class="refer-cov">
-                                
-                                <p><b>Jonney Smith</b> CEO Casinocarol</p>
-                                <span>Phone : +00 890 1232 8767</span>
-                            </div>
-                            <div class="refer-cov">
+                        <div class="refer-cov">
                             
-                                <p> <b>Simon Shanu</b> System Administrator</p>
-                                <span>Phone :  +00 890 1232 8767</span>
-                            </div>
+                            <p><b>Jonney Smith</b> CEO Casinocarol</p>
+                            <span>Phone : +00 890 1232 8767</span>
+                        </div>
+                        <div class="refer-cov">
+                           
+                            <p> <b>Simon Shanu</b> System Administrator</p>
+                            <span>Phone :  +00 890 1232 8767</span>
+                        </div>
                         
-                        </div>
-                        <div class="col-md-8 home-dat">
-                          <h2 class="rit-titl"> Skills</h2>
-                        <div class="profess-cover row no-margin">
-                            <div class="col-md-6">
-                                <div class=" prog-row row">
-                                    <div class="col-sm-6">
-                                        Photoshop
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <div class="progress">
-                                            <div class="progress-bar" role="progressbar" style="width: 65%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                                        </div>
-                                    </div>
-                                </div>
+                    </div>
+                    <div class="col-md-8 home-dat">
+                        <h2 class="rit-titl"> Skills</h2>
+                    
+                    <div class="links">
+                        <div class="row ">
+                            <div class="col-xl-6 col-md-12">
+                                <ul class="btn-link">
+                                    <li>
+                                        <a href=""><i class="fas fa-paper-plane"></i> Hire Me</a>
+                                    </li>
+                                    <li>
+                                        <a href=""><i class="fas fa-cloud-download-alt"></i> Download Resume</a>
+                                    </li>
+                                </ul>
                             </div>
-                            <div class="col-md-6">
-                                <div class="row prog-row">
-                                    <div class="col-sm-6">
-                                        PHP
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <div class="progress">
-                                            <div class="progress-bar" role="progressbar" style="width: 85%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="row prog-row">
-                                    <div class="col-sm-6">
-                                        Web Design
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <div class="progress">
-                                            <div class="progress-bar" role="progressbar" style="width: 75%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="row prog-row">
-                                    <div class="col-sm-6">
-                                        Web Development
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <div class="progress">
-                                            <div class="progress-bar" role="progressbar" style="width: 55%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                                        </div>
-                                    </div>
-                                </div>
+                            <div class="col-xl-6 col-md-12">
+                                <ul class="social-link">
+                                    <li><i class="fab fa-facebook-f"></i></li>
+                                    <li><i class="fab fa-twitter"></i></li>
+                                    <li><i class="fab fa-pinterest-p"></i></li>
+                                    <li><i class="fab fa-linkedin-in"></i></li>
+                                    <li><i class="fab fa-linkedin-in"></i></li>
+                                    <li><i class="fab fa-youtube"></i></li>
+                                </ul>
                             </div>
                         </div>
-                        <div class="links">
-                            <div class="row ">
-                                <div class="col-xl-6 col-md-12">
-                                    <ul class="btn-link">
-                                        <li>
-                                          <a href=""><i class="fas fa-paper-plane"></i> Hire Me</a>
-                                        </li>
-                                        <li>
-                                          <a href=""><i class="fas fa-cloud-download-alt"></i> Download Resume</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="col-xl-6 col-md-12">
-                                    <ul class="social-link">
-                                      <li><i class="fab fa-facebook-f"></i></li>
-                                      <li><i class="fab fa-twitter"></i></li>
-                                      <li><i class="fab fa-pinterest-p"></i></li>
-                                      <li><i class="fab fa-linkedin-in"></i></li>
-                                      <li><i class="fab fa-linkedin-in"></i></li>
-                                      <li><i class="fab fa-youtube"></i></li>
-                                    </ul>
-                                </div>
+                    </div>
+                    <div class="jumbo-address">
+                        <div class="row no-margin">
+                            <div class="col-lg-6 no-padding">
+
+                                <table class="addrss-list">
+                                    <tbody>
+                                        <tr>
+                                          <th>Position</th>
+                                          <td>Freelance</td>
+                                      </tr>
+                                      <tr>
+                                          <th>Nationality</th>
+                                          <td>American</td>
+                                      </tr>
+                                      <tr>
+                                          <th>Date of birth</th>
+                                          <td>09-06-1989</td>
+                                      </tr>
+                                    </tbody>
+                                </table>
                             </div>
-                        </div>
-                        <div class="jumbo-address">
-                            <div class="row no-margin">
-                                <div class="col-lg-6 no-padding">
-                                    <table class="addrss-list">
+                            <div class="col-lg-6 no-padding">
+                                <table class="addrss-list">
                                         <tbody>
                                             <tr>
-                                                <th>Position</th>
-                                                <td>Freelance</td>
+                                            <th>Experiance</th>
+                                            <td>5+ Years</td>
                                             </tr>
                                             <tr>
-                                                <th>Nationality</th>
-                                                <td>American</td>
+                                            <th>Website</th>
+                                            <td>www.yourdomain.com</td>
                                             </tr>
                                             <tr>
-                                                <th>Date of birth</th>
-                                                <td>09-06-1989</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                                <div class="col-lg-6 no-padding">
-                                    <table class="addrss-list">
-                                        <tbody>
-                                            <tr>
-                                                <th>Experiance</th>
-                                                <td>5+ Years</td>
-                                            </tr>
-                                            <tr>
-                                                <th>Website</th>
-                                                <td>www.yourdomain.com</td>
-                                            </tr>
-                                            <tr>
-                                                <th>Languages</th>
-                                                <td>English,French,Germany</td>
+                                            <th>Languages</th>
+                                            <td>English,French,Germany</td>
                                             </tr>
                                         </tbody>
                                     </table>
                                 </div>
                             </div>
+
                         </div>
                     </div>
                 </div>
@@ -195,139 +146,117 @@
                     <div class="sec-title">
                         <h2>My Profile</h2>
                     </div>
-                    <div class="row exp-row">
-                       <h6>Business Development</h6>
-                       <span>Microsoft</span>
-                       <i>Apiral 2011 - Present</i>                
-                       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean a urna posuere, aliquet elit in, fermentum ligula. Sed est augue, molestie sed tortor sed, posuere commodo lectus.</p>
+                    <div class="row">
+                        @include('profile.partials.update-profile-information-form')
                     </div>
-                    <div class="row exp-row">
-                       <h6>Business Development</h6>
-                       <span>Microsoft</span>
-                       <i>Apiral 2011 - Present</i>                    
-                       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean a urna posuere, aliquet elit in, fermentum ligula. Sed est augue, molestie sed tortor sed, posuere commodo lectus.</p>
+                    <div class="row">
+                        @include('profile.partials.update-password-form') 
                     </div>
-                    <div class="row exp-row last">
-                       <h6>Business Development</h6>
-                       <span>Microsoft</span>
-                       <i>Apiral 2011 - Present</i>                            
-                       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean a urna posuere, aliquet elit in, fermentum ligula. Sed est augue, molestie sed tortor sed, posuere commodo lectus.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="tab-pane fade exp-cover" id="resume" role="tabpanel" aria-labelledby="contact-tab">
-                <div class="sec-title">
-                    <h2>Education Details</h2>
-                </div>
-                <div class="service no-margin row">
-                    <div class="col-sm-3 resume-dat serv-logo">
-                        <h6>2013-2015</h6>
-                        <p>Master Degree</p>
-                    </div>
-                    <div class="col-sm-9 rgbf">
-                        <h5>Cambridg University</h5>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                    </div>
-                </div>
-                <div class="service no-margin row">
-                    <div class="col-sm-3 resume-dat serv-logo">
-                        <h6>2013-2015</h6>
-                        <p>Bacholers Degree</p>
-                    </div>
-                    <div class="col-sm-9 rgbf">
-                        <h5>Anna University</h5>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                    </div>
-                </div>
-                <div class="service no-margin row">
-                    <div class="col-sm-3 resume-dat serv-logo">
-                        <h6>2013-2015</h6>
-                        <p>High School</p>
-                    </div>
-                    <div class="col-sm-9 rgbf">
-                        <h5>A.M.H.S.S</h5>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                    </div>
-                </div>
-                <div class="service no-margin row">
-                    <div class="col-sm-3 resume-dat serv-logo">
-                        <h6>2013-2015</h6>
-                        <p>School</p>
-                    </div>
-                    <div class="col-sm-9 rgbf">
-                        <h5>Anna University</h5>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                    <div class="row">
+                        @include('profile.partials.delete-user-form')
                     </div>
                 </div>
             </div>
             <div class="tab-pane fade gallcoo" id="gallery" role="tabpanel" aria-labelledby="contact-tab">
                 <div class="row no-margin gallery">
-                    <div class="col-sm-4">
-                        <img src="assets/images/gallery/gallery_01.jpg" alt="">
-                    </div>
-                    <div class="col-sm-4">
-                        <img src="assets/images/gallery/gallery_02.jpg" alt="">
-                    </div>
-                    <div class="col-sm-4">
-                        <img src="assets/images/gallery/gallery_03.jpg" alt="">
-                    </div>
-                    <div class="col-sm-4">
-                        <img src="assets/images/gallery/gallery_04.jpg" alt="">
-                    </div>
-                    <div class="col-sm-4">
-                        <img src="assets/images/gallery/gallery_05.jpg" alt="">
-                    </div>
-                    <div class="col-sm-4">
-                        <img src="assets/images/gallery/gallery_06.jpg" alt="">
-                    </div>
-                    <div class="col-sm-4">
-                        <img src="assets/images/gallery/gallery_10.jpg" alt="">
-                    </div>
-                    <div class="col-sm-4">
-                        <img src="assets/images/gallery/gallery_08.jpg" alt="">
-                    </div>
-                    <div class="col-sm-4">
-                        <img src="assets/images/gallery/gallery_09.jpg" alt="">
-                    </div>                      
+                    @if($biens->isEmpty())
+                        <p>Vous n'avez aucune publication</p>
+                    @else
+                        @foreach($biens as $bien)    
+                            <div class="col-sm-4">
+                                <div class="bg-white shadow-lg rounded-lg overflow-hidden">
+                                    @if($bien->images->count() > 0)
+                                        <div id="carousel{{ $bien->id }}" class="carousel slide" data-bs-ride="carousel" data-bs-interval="5000">
+                                            <div class="carousel-inner">
+                                                @foreach($bien->images as $index => $image)
+                                                    <div class="carousel-item @if($index == 0) active @endif">
+                                                        <img src="{{asset('storage/' . $image->url)}}" alt="">
+                                                    </div>
+                                                @endforeach
+                                            </div> 
+                                            <a class="carousel-control-prev" href="#hero-carousel{{ $bien->id }}" role="button" data-bs-slide="prev">
+                                                <span class="carousel-control-prev-icon bi bi-chevron-left" aria-hidden="true"></span>
+                                            </a>
+                                            <a class="carousel-control-next" href="#hero-carousel{{ $bien->id }}" role="button" data-bs-slide="next">
+                                                <span class="carousel-control-next-icon bi bi-chevron-right" aria-hidden="true"></span>
+                                            </a>
+                                        </div>
+                                    @endif
+                                    <div class="p-4">
+                                        <h3 class="text-xl font-semibold">{{$bien->nom}}</h3>
+                                        <p class="text-gray-700">{{$bien->nombre_pieces}} Beds • 2 Baths • 1500 sqft</p>
+                                        <p class="text-gray-900 font-bold mt-2">{{$bien->prix}} FCFA / Mois</p>
+                                        <p class="text-gray-900 font-bold mt-2">{{$bien->description}}</p>
+                                        <div class="card-footer text-left">
+                                        <div class="dropdown">
+                                            <button class="btn" type="button" id="dropdownMenuButton{{$bien->id }}" data-toggle="dropdown" aria-expanded="false">
+                                                &#x22EE;
+                                            </button>
+                                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton{{$bien->id}}">
+                                                <a href="#" class="dropdown-item">Update</a>
+                                                <button type="button" class="dropdown-item" data-toggle="modal" data-target="#deleteModal" data-id="{{ $bien->id }}">Delete</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div> 
+                        @endforeach
+                    @endif
                 </div>
-            </div>
-            <div class="tab-pane fade contact-tab" id="contact" role="tabpanel" aria-labelledby="contact-tab">
-                <div class="row no-margin">
-                    <div class="col-md-6 no-padding">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3176144.0450019627!2d-107.79423426090409!3d38.97644533805396!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x874014749b1856b7%3A0xc75483314990a7ff!2sColorado%2C+USA!5e0!3m2!1sen!2sin!4v1547222354537"  frameborder="0" style="border:0" allowfullscreen></iframe>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="row cont-row no-margin">
-                           <div class="col-sm-6">
-                                <input placeholder="Enter Full Name" type="text" class="form-control form-control-sm">
+                <!-- Modal de confirmation de suppression -->
+                <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="deleteModalLabel">Confirmation de suppression</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
                             </div>
-                            <div class="col-sm-6">
-                                <input placeholder="Enter Email Address" type="text" class="form-control form-control-sm">
+                            <div class="modal-body">
+                                Êtes-vous sûr de vouloir supprimer ce bien ?
                             </div>
-                        </div>
-                        <div class="row cont-row no-margin">
-                            <div class="col-sm-6">
-                                <input placeholder="Enter Mobile Number" type="text" class="form-control form-control-sm">
-                            </div>        
-                        </div>
-                        <div class="row cont-row no-margin">
-                            <div class="col-sm-12">
-                                <textarea placeholder="Enter your Message" class="form-control form-control-sm" rows="10"></textarea>
-                            </div>                  
-                        </div>
-                        <div class="row cont-row no-margin">
-                            <div class="col-sm-6">
-                                <button class="btn btn-sm btn-primary">Send Message</button>
-                            </div>             
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
+                                <form id="deleteForm" action="{{route('delete', $biens)}}" method="POST">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="btn btn-danger">Supprimer</button>
+                                </form>
+                            </div>
                         </div>
                     </div>
                 </div>
+
+                <script>
+                    $('#deleteModal').on('show.bs.modal', function (event) {
+                        var button = $(event.relatedTarget) // Bouton qui a déclenché le modal
+                        var bienId = button.data('id') // Extraire l'information des attributs data-*
+                        var form = $('#deleteForm')
+                        form.attr('action', '/biens/' + bienId)
+                    })
+                </script>
             </div>
         </div>
     </div>
+    <script>
+        document.getElementById('dropdownButton').addEventListener('click', function () {
+            var menu = document.getElementById('dropdownMenu');
+            menu.classList.toggle('hidden');
+        });
+
+        window.addEventListener('click', function(e) {
+            var menu = document.getElementById('dropdownMenu');
+            var button = document.getElementById('dropdownButton');
+            if (!button.contains(e.target) && !menu.contains(e.target)) {
+                menu.classList.add('hidden');
+            }
+        });
+    </script>
 </body>
-<script src="{{asset('profile/js/jquery-3.2.1.min.js')}}"></script>
-<script src="{{asset('profile/js/popper.min.js')}}"></script>
-<script src="{{asset('profile/js/bootstrap.min.js')}}"></script>
-<script src="{{asset('profile/js/script.js')}}"></script>
+
+<script src="{{asset('user/js/jquery-3.2.1.min.js')}}"></script>
+<script src="{{asset('user/js/popper.min.js')}}"></script>
+<script src="{{asset('user/js/bootstrap.min.js')}}"></script>
+<script src="{{asset('user/js/script.js')}}"></script>
 </html>

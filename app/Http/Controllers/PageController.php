@@ -19,6 +19,21 @@ class PageController extends Controller
     public function contact(){
         return view('contact');
     }
+    public function all(){
+        $types = type_biens::all();
+        $villes = villes::all();
+        $biens = Biens::all();
+        return view('biens.allbiens', compact('biens', 'villes','types'));
+    }
+
+    public function location(){
+        $biens = Biens::all();
+        return view('biens.location', compact('biens'));
+    }
+    public function vente(){
+        $biens = Biens::all();
+        return view('biens.vente', compact('biens'));
+    }
     public function publish(){
         $types = type_biens::all();
         $villes = villes::all();

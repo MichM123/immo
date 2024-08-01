@@ -15,7 +15,7 @@ class BiensController extends Controller
 {
     public function index()
     {
-        $biens = Biens::all();
+        $biens = Biens::with('images')->get();
         return view('biens.index', compact('biens'));
     }
     public function create()
@@ -23,6 +23,14 @@ class BiensController extends Controller
         $types = type_biens::all();
         $villes = villes::all();
         return view('biens.create', compact('types', 'villes'));
+    }
+    public function edit(){
+        $bien = Biens::find($id);
+        $types = type_biens::all();
+        $villes = villes::all();
+        if($bien){
+            return view('biens.edit', compact('bien', 'types', 'villes'));
+        }
     }
     public function store(StoreAnnonceRequest $request)
     {
@@ -58,8 +66,11 @@ class BiensController extends Controller
                 }
             }
         }
-           
         return redirect()->route('home');
+    }
+    public function delete(Biens $bien){
+        $bien->delete();
+        return redirect()->route('profile');
     }
 
 }

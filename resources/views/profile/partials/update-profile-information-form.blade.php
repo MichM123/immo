@@ -18,13 +18,13 @@
         @method('patch')
 
         <div>
-            <x-input-label for="nom" :value="__('nom')" />
-            <x-text-input id="nom" name="nom" type="text" class="mt-1 block w-full" :value="old('nom', $user->nom)" required autofocus autocomplete="nom" />
+            <x-input-label for="prenom" :value="__('nom')" />
+            <x-text-input id="prenom" name="nom" type="text" class="mt-1 block w-full" :value="old('nom')" required autofocus autocomplete="nom" />
             <x-input-error class="mt-2" :messages="$errors->get('nom')" />
         </div>
         <div>
             <x-input-label for="email" :value="__('Email')" />
-            <x-text-input id="email" name="email" type="email" class="mt-1 block w-full" :value="old('email', $user->email)" required autocomplete="username" />
+            <x-text-input id="email" name="email" type="email" class="mt-1 block w-full" :value="old('email')" required autocomplete="email" />
             <x-input-error class="mt-2" :messages="$errors->get('email')" />
 
             @if ($user instanceof \Illuminate\Contracts\Auth\MustVerifyEmail && ! $user->hasVerifiedEmail())
@@ -47,7 +47,7 @@
         </div>
         <div>
             <x-input-label for="telephone" :value="__('telephone')" />
-            <x-text-input id="telephone" name="telephone" type="text" :value="old('telephone', $user->telephone)" required autofocus autocomplete="telephone" />
+            <x-text-input id="telephone" name="telephone" type="text" :value="old('telephone')" required autofocus autocomplete="telephone" />
             <x-input-error class="mt-2" :messages="$errors->get('telephone')" />
         </div>
     

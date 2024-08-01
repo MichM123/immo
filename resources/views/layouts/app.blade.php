@@ -33,7 +33,7 @@
   <header id="header" class="header d-flex align-items-center fixed-top">
     <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
 
-      <a href="index.html" class="logo d-flex align-items-center">
+      <a href="{{route('home')}}" class="logo d-flex align-items-center">
         <!-- Uncomment the line below if you also wish to use an image logo -->
         <!-- <img src="assets/img/logo.png" alt=""> -->
         <h1 class="sitename">ImmoBenin</h1>
@@ -41,28 +41,59 @@
       <nav id="navmenu" class="navmenu">
         <ul>
           <li><a href="{{route('home')}}" class="active">Accueil</a></li>
-          <li class="dropdown"><a href="#"><span>A Louer</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+          <li><a href="{{route('mes_biens')}}">Biens</a></li>
+          <li class="dropdown"><a href="{{route('louer')}}"><span>A Louer</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
             <ul>
               <li><a href="">Appartement à louer</a></li>
               <li><a href="#">Maison à louer</a></li>
               <li><a href="#">Bureaux, Boutique, Magasin à louer</a></li>
-              <li><a href="#">Deep Dropdown 4</a></li>
-              <li><a href="#">Deep Dropdown 5</a></li>
+              <li><a href="#">Terrain</a></li>
+              <li><a href="#">immeuble</a></li>
             </ul>
           </li>
-          <li class="dropdown"><a href="#"><span>A Vendre</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+          <li class="dropdown"><a href="{{route('vente')}}"><span>A Vendre</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
             <ul>
               <li><a href="#">Appartement à vendre</a></li>
               <li><a href="#">Maison à vendre</a></li>
               <li><a href="#">Bureaux, Boutique, Magasin à vendre</a></li>
-              <li><a href="#">Deep Dropdown 4</a></li>
-              <li><a href="#">Deep Dropdown 5</a></li>
+              <li><a href="#">Terrain</a></li>
+              <li><a href="#">immeuble</a></li>
             </ul>
           </li>
           <li><a href="{{route('about')}}">About</a></li>
           <li><a href="{{route('contact')}}">Contact</a></li>
           <li><a href="{{route('publier')}}">Publier</a></li>
+          @guest
+            <li><a href="{{route('login')}}">Se connecter</a></li>   
+          @endguest       
+          @auth
+          <li class="nav-item dropdown pe-3">
+            <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
+              <img src="{{asset('storage/' . Auth::user()->identite) }}" alt="Profile" class="h-12 w-12 rounded-circle">
+              <span class="d-none d-md-block dropdown-toggle ps-2">{{ Auth::user()->nom }} {{ Auth::user()->prenom }}</span>
+            </a><!-- End Profile Iamge Icon -->
 
+            <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
+              <li>
+                <a class="dropdown-item d-flex align-items-center" href="{{route('profile')}}">
+                  <span><i class="bi bi-person"></i> My Profile</span>
+                </a>
+              </li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+              <li>
+                <form action="{{ route('logout') }}" method="post">
+                  @csrf
+                  <button type="submit dropdown-item d-flex align-items-center">
+                    <span><i class="bi bi-box-arrow-right"></i> Log Out</span>
+                  </button>
+                    
+                </form> 
+              </li>
+            </ul>
+          </li>
+          @endauth
         </ul>
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>

@@ -10,7 +10,7 @@
           <div class="col-lg-10 text-center">
             <h2>Agence immobilière ImmoBenin</h2>
             <p>Votre partenaire immobilier au Bénin</p>
-            <a href="#get-started" class="btn-get-started">Consulter les annonces</a>
+            <a href="{{route('mes_biens')}}" class="btn-get-started">Consulter les annonces</a>
           </div>
         </div>
       </div>
@@ -18,19 +18,19 @@
 
     <div id="hero-carousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="5000">
       <div class="carousel-item">
-        <img src="{{asset('client/img/hero-carousel/hero-carousel-1.jpg')}}" alt="">
+        <img src="{{asset('image/8.webp')}}" alt="">
       </div>
       <div class="carousel-item active">
-        <img src="{{asset('client/img/hero-carousel/hero-carousel-2.jpg')}}" alt="">
+        <img src="{{asset('image/9.jpg')}}" alt="">
       </div>
       <div class="carousel-item">
-        <img src="{{asset('client/img/hero-carousel/hero-carousel-3.jpg')}}" alt="">
+        <img src="{{asset('image/10.jpg')}}" alt="">
       </div>
       <div class="carousel-item">
-        <img src="{{asset('client/img/hero-carousel/hero-carousel-4.jpg')}}" alt="">
+        <img src="{{asset('image/18.webp')}}" alt="">
       </div>
       <div class="carousel-item">
-        <img src="{{asset('client/img/hero-carousel/hero-carousel-5.jpg')}}" alt="">
+        <img src="{{asset('image/3.webp')}}" alt="">
       </div>
 
       <a class="carousel-control-prev" href="#hero-carousel" role="button" data-bs-slide="prev">
@@ -49,7 +49,7 @@
     <!-- Section Title -->
     <div class="container section-title" data-aos="fade-up">
       <h2>Services</h2>
-      <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
+      <p>Nous nous engageons à offrir un service sécurisé, rapide et efficace pour répondre à tous vos besoins immobiliers. Rejoignez-nous dès aujourd'hui et découvrez la facilité de gérer vos transactions immobilières en ligne.</p>
     </div><!-- End Section Title -->
     <div class="container">
       <div class="row gy-4">
@@ -58,9 +58,9 @@
             <div class="icon">
               <i class="fa-solid fa-mountain-city"></i>
             </div>
-            <h3>Nesciunt Mete</h3>
-            <p>Provident nihil minus qui consequatur non omnis maiores. Eos accusantium minus dolores iure perferendis tempore et consequatur.</p>
-            <a href="#" class="readmore stretched-link">Read more <i class="bi bi-arrow-right"></i></a>
+            <h3>Vente</h3>
+            <p>Vous souhaitez vendre votre bien immobilier ? Notre plateforme vous permet de publier facilement une annonce détaillée, d'inclure des photos attractives, et de toucher un large public d'acheteurs potentiels. Nous vous accompagnons dans chaque étape, de la mise en ligne de l'annonce à la finalisation de la vente.</p>
+            <a href="{{route('about')}}" class="readmore stretched-link">Read more <i class="bi bi-arrow-right"></i></a>
           </div>
         </div><!-- End Service Item -->
         <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
@@ -68,9 +68,9 @@
             <div class="icon">
               <i class="fa-solid fa-arrow-up-from-ground-water"></i>
             </div>
-            <h3>Eosle Commodi</h3>
-            <p>Ut autem aut autem non a. Sint sint sit facilis nam iusto sint. Libero corrupti neque eum hic non ut nesciunt dolorem.</p>
-            <a href="#" class="readmore stretched-link">Read more <i class="bi bi-arrow-right"></i></a>
+            <h3>Location</h3>
+            <p>Pour ceux qui cherchent à louer un bien, notre service de location offre une interface intuitive pour gérer vos annonces. Que vous soyez propriétaire d'un appartement, d'une maison ou d'un local commercial, vous pouvez atteindre des locataires potentiels en un clic.</p>
+            <a href="{{route('about')}}" class="readmore stretched-link">Read more <i class="bi bi-arrow-right"></i></a>
           </div>
         </div><!-- End Service Item -->
         <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
@@ -78,9 +78,9 @@
             <div class="icon">
               <i class="fa-solid fa-compass-drafting"></i>
             </div>
-            <h3>Ledo Markt</h3>
-            <p>Ut excepturi voluptatem nisi sed. Quidem fuga consequatur. Minus ea aut. Vel qui id voluptas adipisci eos earum corrupti.</p>
-            <a href="#" class="readmore stretched-link">Read more <i class="bi bi-arrow-right"></i></a>
+            <h3>Publication</h3>
+            <p>Vous êtes un professionnel de l'immobilier ou un particulier souhaitant diffuser une annonce ? Notre plateforme vous offre la possibilité de publier vos offres avec un accès à un large réseau de visiteurs. Grâce à nos outils de promotion et de visibilité, vos annonces bénéficient d'une mise en avant optimale pour attirer l'attention de l'audience cible.</p>
+            <a href="{{route('about')}}" class="readmore stretched-link">Read more <i class="bi bi-arrow-right"></i></a>
           </div>
         </div><!-- End Service Item -->
       </div>
@@ -91,19 +91,37 @@
   <!-- Featured Properties -->
   <section class="py-16 bg-gray-200">
     <div class="container mx-auto px-4">
-      <h2 class="text-2xl font-semibold mb-4 text-center">À la UNE Coup de Cœur</h2>
+      <h2 class="text-2xl font-semibold mb-4 text-center">À la UNE </h2>
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         <!-- Property Card -->
-         @foreach($biens as $bien)
+        @foreach($biens as $bien)
           <div class="bg-white shadow-lg rounded-lg overflow-hidden">
-            <img src="{{asset('image/1.webp')}}" alt="Property Image" class="w-full h-48 object-cover">
+            @if($bien->images->count() > 0)
+              <div id="carousel{{ $bien->id }}" class="carousel slide" data-bs-ride="carousel" data-bs-interval="5000">
+                <div class="carousel-inner">
+                  @foreach($bien->images as $index => $image)
+                    <div class="carousel-item @if($index == 0) active @endif">
+                      <img src="{{asset('storage/' . $image->url)}}" alt="">
+                    </div>
+                  @endforeach
+                </div>
+                
+                <a class="carousel-control-prev" href="#hero-carousel{{ $bien->id }}" role="button" data-bs-slide="prev">
+                  <span class="carousel-control-prev-icon bi bi-chevron-left" aria-hidden="true"></span>
+                </a>
+
+                <a class="carousel-control-next" href="#hero-carousel{{ $bien->id }}" role="button" data-bs-slide="next">
+                  <span class="carousel-control-next-icon bi bi-chevron-right" aria-hidden="true"></span>
+                </a>
+              </div>
+            @endif
             <div class="p-4">
               <h3 class="text-xl font-semibold">{{$bien->nom}}</h3>
               <p class="text-gray-700">{{$bien->nombre_pieces}} Beds • 2 Baths • 1500 sqft</p>
               <p class="text-gray-900 font-bold mt-2">${{$bien->prix}}/month</p>
             </div>
-          @endforeach
-        </div>
+          </div>
+        @endforeach
         <!-- Repeat the property card for more listings -->
       </div>
       <div class="text-center mt-8">
@@ -263,7 +281,7 @@
           <div class="post-item position-relative h-100" data-aos="fade-up" data-aos-delay="100">
 
             <div class="post-img position-relative overflow-hidden">
-              <img src="{{asset('client/img/blog/blog-1.jpg')}}" class="img-fluid" alt="">
+              <img src="{{asset('image/1.webp')}}" class="img-fluid" alt="">
               <span class="post-date">December 12</span>
             </div>
 
@@ -294,7 +312,7 @@
           <div class="post-item position-relative h-100" data-aos="fade-up" data-aos-delay="200">
 
             <div class="post-img position-relative overflow-hidden">
-              <img src="{{asset('client/img/blog/blog-2.jpg')}}" class="img-fluid" alt="">
+              <img src="{{asset('image/7.webp')}}" class="img-fluid" alt="">
               <span class="post-date">July 17</span>
             </div>
 
@@ -325,7 +343,7 @@
           <div class="post-item position-relative h-100">
 
             <div class="post-img position-relative overflow-hidden">
-              <img src="{{asset('client/img/blog/blog-3.jpg')}}" class="img-fluid" alt="">
+              <img src="{{asset('image/9.jpg')}}" class="img-fluid" alt="">
               <span class="post-date">September 05</span>
             </div>
 

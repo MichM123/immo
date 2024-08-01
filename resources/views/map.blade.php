@@ -11,7 +11,7 @@
             width: 100%;
         }
     </style>
-    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBESyB4GRR7_QiKaqYmGgmapnAjQFpLcwU&libraries=places"></script>
 </head>
 <body class="bg-gray-100 p-8">
     <div class="max-w-3xl mx-auto bg-white p-8 rounded-lg shadow-md">
@@ -20,8 +20,8 @@
     </div>
 
     <script>
-        async function geocodeAddress(address) {
-            const response = await fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${encodeURIComponent(address)}&key=YOUR_API_KEY`);
+        async function geocodeAddress(adresse) {
+            const response = await fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${encodeURIComponent(adresse)}&key=AIzaSyBESyB4GRR7_QiKaqYmGgmapnAjQFpLcwU`);
             const data = await response.json();
 
             if (data.status === "OK") {
@@ -37,26 +37,26 @@
                 zoom: 12,
             });
 
-            const properties = @json($properties);
+            const biens = @json($biens);
 
-            for (const property of properties) {
+            for (const Biens of biens) {
                 try {
-                    const location = await geocodeAddress(property.address);
+                    const location = await geocodeAddress(Biens.adresse);
                     const marker = new google.maps.Marker({
                         position: location,
                         map: map,
-                        title: property.name,
+                        title: Biens.name,
                     });
 
                     const infowindow = new google.maps.InfoWindow({
-                        content: `<h3>${property.name}</h3><p>${property.address}</p>`,
+                        content: `<h3>${Biens.nom}</h3><p>${Biens.adresse}</p>`,
                     });
 
                     marker.addListener("click", () => {
                         infowindow.open(map, marker);
                     });
                 } catch (error) {
-                    console.error(`Geocoding failed for address: ${property.address}`);
+                    console.error(`Geocoding failed for address: ${Bines.adresse}`);
                 }
             }
         }

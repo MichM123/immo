@@ -297,22 +297,12 @@
           </li>
           <li>
             <a href="components-accordion.html">
-              <i class="bi bi-circle"></i><span>Supprimer</span>
-            </a>
-          </li>
-          <li>
-            <a href="components-badges.html">
               <i class="bi bi-circle"></i><span>Tous les controlleur</span>
             </a>
           </li>
           <li>
-            <a href="components-breadcrumbs.html">
-              <i class="bi bi-circle"></i><span>Breadcrumbs</span>
-            </a>
-          </li>
-          <li>
-            <a href="components-buttons.html">
-              <i class="bi bi-circle"></i><span>Buttons</span>
+            <a href="components-badges.html">
+              <i class="bi bi-circle"></i><span>Supprimer</span>
             </a>
           </li>
         </ul>
@@ -320,22 +310,17 @@
 
       <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#forms-nav" data-bs-toggle="collapse" href="#">
-          <i class="bi bi-journal-text"></i><span>Utilisateurs</span><i class="bi bi-chevron-down ms-auto"></i>
+          <i class="bi bi-journal-text"></i><span>Propriétaires</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
         <ul id="forms-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
             <a href="components-accordion.html">
-              <i class="bi bi-circle"></i><span>Supprimer</span>
+              <i class="bi bi-circle"></i><span>Tous les Propriétaires</span>
             </a>
           </li>
           <li>
             <a href="components-badges.html">
-              <i class="bi bi-circle"></i><span>Tous les controlleur</span>
-            </a>
-          </li>
-          <li>
-            <a href="forms-layouts.html">
-              <i class="bi bi-circle"></i><span>Form Layouts</span>
+              <i class="bi bi-circle"></i><span>Supprimer</span>
             </a>
           </li>
         </ul>

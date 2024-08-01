@@ -4,7 +4,7 @@
     <div class="p-8"></div>
     <form action="{{route('biens-submit')}}" enctype="multipart/form-data" method="post">
         @csrf
-        <div class="container mt-5 box-shadow">
+        <div class="container mt-5">
             <h2 class="text-center mb-3">Ajouter un bien</h2>
             <div class="mb-3">
                 <label for="nom" class="form-label">nom</label>
@@ -73,6 +73,6 @@
                 <input type="file" name="images[]" id="images" class="form-control" multiple>
             </div>
         </div>  
-        <button type="submit" class="btn btn-primary w-50 p-8 mb-4 d-flex">ENVOYER</button>
+        <button type="submit" class="btn btn-primary w-100">ENVOYER</button>
     </form>
 @endsection

@@ -7,8 +7,8 @@
   <!-- Listings Section -->
     <section class="py-16">
         <div class="container mx-auto px-4">
-        <h2 class="text-3xl font-semibold text-center">Annonces d'appartements à louer au Bénin</h2>
-        <p class="mt-4 text-center">À la recherche d'un appartement à louer au Bénin ? L'agence immobilière BENIN-IMMO vous aide à trouver le logement idéal.</p>
+        <h2 class="text-3xl font-semibold text-center">Annonces de biens à vendre au Bénin</h2>
+        <p class="mt-4 text-center">À la recherche d'un bien à vendre au Bénin ? ImmoBenin vous aide à trouver le logement idéal.</p>
         
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
             <!-- Property Card -->
@@ -161,7 +161,6 @@
                 </div>
             </div>
         </div>
-    
         </div>
     </section>
     <section id="blog-pagination" class="blog-pagination section">
