@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Biens;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
 
@@ -84,5 +85,17 @@ class AdminController extends Controller
     public function destroy(string $id)
     {
         //
+    }
+
+    public function propietaires() {
+        if (! Gate::allows('acces-admin')) {
+            abort('403');
+        }
+
+        $users = User::orderBy('id','desc')->where('admin',0)->paginate(15);
+
+        return view('admin.admindisplayusers',[
+            'users'=>$users
+        ]);
     }
 }

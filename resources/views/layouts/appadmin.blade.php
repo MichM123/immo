@@ -314,7 +314,7 @@
         </a>
         <ul id="forms-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
-            <a href="components-accordion.html">
+            <a href="{{ route('admin.proprietaire')}}">
               <i class="bi bi-circle"></i><span>Tous les Propriétaires</span>
             </a>
           </li>

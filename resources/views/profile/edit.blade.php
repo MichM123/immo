@@ -163,12 +163,18 @@
                 </div>
             </div>
             <div class="tab-pane fade gallcoo" id="gallery" role="tabpanel" aria-labelledby="contact-tab">
-                <div class="row g-3 gallery">
+
+                <div class="row">
+                    <div class="col-md-4">
+                        <a href="{{ route('biens') }}" class="btn btn-primary">Ajouter un bien</a>
+                    </div>
+                </div>
+                <div class="row">
                     @if ($biens->isEmpty())
                         <p>Vous n'avez aucune publication</p>
                     @else
                         @foreach ($biens as $bien)
-                            <div class="col-sm-4">
+                            <div class="col-sm-4 p-2">
                                 <div class="bg-white shadow-lg rounded-lg overflow-hidden">
                                     @if ($bien->images->count() > 0)
                                         <div id="carousel{{ $bien->id }}" class="carousel slide"
@@ -196,26 +202,38 @@
                                     @endif
                                     <div class="p-4">
                                         <h3 class="h5">{{ $bien->nom }}</h3>
-                                        <p class="text-muted">{{ $bien->nombre_pieces }} Beds • 2 Baths • 1500 sqft
-                                        </p>
+                                        <p class="text-muted">{{ $bien->nombre_pieces }} Beds • 2 Baths • 1500
+                                            sqft</p>
                                         <p class="fw-bold">{{ $bien->prix }} FCFA / Mois</p>
                                         <p>{{ $bien->description }}</p>
                                         <div class="card-footer text-start">
                                             <div class="row">
-                                                <a href="#" class="dropdown-item">Update</a>
-                                                <button type="button" class="dropdown-item" data-bs-toggle="modal"
-                                                    data-bs-target="#deleteModal" data-id="{{ $bien->id }}">
-                                                    Delete
-                                                </button>
+                                                <div class="col-md-3">
+                                                    <a href="{{ route('biens.edit', $bien->id) }}"
+                                                        class=" btn btn-primary">Update</a>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <form action="" method="post">
+                                                        @csrf
+                                                        @method('DELETE')
+                                                        <button type="button" class="btn btn-danger"
+                                                            data-bs-toggle="modal" data-bs-target="#deleteModal"
+                                                            data-id="{{ $bien->id }}">
+                                                            Delete
+                                                        </button>
+                                                    </form>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+                        @endforeach
+                    @endif
                 </div>
-                @endforeach
-                @endif
+
             </div>
+
 
             <!-- Modal de confirmation de suppression -->
             <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog"

@@ -23,7 +23,6 @@ class BiensController extends Controller
     {
         $types = type_biens::all();
         $villes = villes::all();
-        dd($villes);
         return view('biens.create', compact('types', 'villes'));
     }
     public function edit( string $id){
