@@ -26,6 +26,7 @@ return new class extends Migration
             $table->string('statut');
             $table->unsignedBigInteger('user_id');
             $table->timestamps();
+            $table->boolean('accept')->default(0);
 
             $table->foreign('type_id')->references('id')->on('type_biens')->onDelete('cascade');
             $table->foreign('ville_id')->references('id')->on('villes')->onDelete('cascade');

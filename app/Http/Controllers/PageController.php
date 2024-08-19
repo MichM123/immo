@@ -11,6 +11,7 @@ class PageController extends Controller
 {
     public function home(){
         $biens = Biens::all();
+
         return view('biens.index', compact('biens'));
     }
     public function about(){
@@ -19,10 +20,12 @@ class PageController extends Controller
     public function contact(){
         return view('contact');
     }
+
     public function all(){
         $types = type_biens::all();
         $villes = villes::all();
-        $biens = Biens::all();
+        $biens = Biens::with(['User','ville','type_biens'])->orderBy('id','desc')->where('accept',1)->paginate(6);
+        
         return view('biens.allbiens', compact('biens', 'villes','types'));
     }
 

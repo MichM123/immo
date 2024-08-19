@@ -21,6 +21,7 @@ class Biens extends Model
         'document',
         'statut',
         'user_id',
+        'accept'
     ];
 
     public function images(){

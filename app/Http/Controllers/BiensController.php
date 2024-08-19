@@ -15,16 +15,18 @@ class BiensController extends Controller
 {
     public function index()
     {
-        $biens = Biens::with('images')->get();
+        $biens = Biens::with('images')->get()->where('accept',1);
+        dd($biens);
         return view('biens.index', compact('biens'));
     }
     public function create()
     {
         $types = type_biens::all();
         $villes = villes::all();
+        dd($villes);
         return view('biens.create', compact('types', 'villes'));
     }
-    public function edit(){
+    public function edit( string $id){
         $bien = Biens::find($id);
         $types = type_biens::all();
         $villes = villes::all();
@@ -34,25 +36,18 @@ class BiensController extends Controller
     }
     public function store(StoreAnnonceRequest $request)
     {
+        $validated = $request->validated();
+
         if ($request->hasFile('document')) {
-            $DocumentPath = $request->file('document')->store('documents', 'public');
-            $bien = Biens::create([
-                'nom' => $request->nom,
-                'adresse' => $request->adresse,
-                'description' => $request->description,
-                'code_postal' => $request->code_postal,
-                'superficie' => $request->superficie,
-                'nombre_pieces' => $request->nombre_pieces,
-                'prix' => $request->prix,
-                'type_id' => $request->type_id,
-                'ville_id' => $request->ville_id,
-                'document' => $DocumentPath,
-                'statut' => $request->statut,
-                'user_id' => Auth::id(),
-            ]);
+            $documentname = time() . '_' . $request->file('document')->getClientOriginalName();
+            $DocumentPath = $request->file('document')->storeAs('documents',$documentname ,'public');
+            $validated['document'] = $DocumentPath;
+            $validated['user_id'] =Auth::user()->id;
+
+            $bien = Biens::create($validated);
         }
             
-        if($bien){
+        if($bien && $bien->accept=1){
             $annonces = $bien->annonces()->create([
                 'type' => $request->type,
             ]);

@@ -36,6 +36,7 @@ class StoreAnnonceRequest extends FormRequest
             'statut' => 'required',
             'type' => 'required',
             'images.*' => 'required|mimes:jpeg,jpg,png,webp|max:2048',
+            'accepted' => 'boolean'
         ];
     }
 }

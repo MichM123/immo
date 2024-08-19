@@ -55,6 +55,7 @@ class RegisteredUserController extends Controller
             'ville' => $request->ville,
             'profession' => $request->profession,
             'identite' => $IdentitePath,
+            'admin'=>0
         ]);
 
         event(new Registered($user));

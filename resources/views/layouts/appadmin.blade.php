@@ -332,7 +332,7 @@
         </a>
         <ul id="tables-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
-            <a href="tables-general.html">
+            <a href="{{ route('admin.bien.index')}}">
               <i class="bi bi-circle"></i><span>Tous les biens</span>
             </a>
           </li>

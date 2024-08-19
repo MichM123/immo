@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BiensController;
@@ -8,7 +9,7 @@ use App\Http\Controllers\AuthenticatedSessionController;
 
 
 
-Route::get('/profil', [ProfileController::class, 'index']);
+// Route::get('/profil', [ProfileController::class, 'index']);
 
 Route::get('/home', [PageController::class, 'home'])->name('home');
 Route::get('/contact',[PageController::class, 'contact'])->name('contact');
@@ -24,9 +25,16 @@ Route::get('/biens/{bien}/edit', [BiensController::class, 'edit'])->name('biens.
 Route::put('/biens/{bien}', [BiensController::class, 'update'])->name('biens.update');
 Route::delete('/biens/{biens}', [BiensController::class, 'delete'])->name('delete');
 
-Route::get('/dashboard', function () {
+Route::middleware('auth')->get('/dashboard', function () {
     return view('admin.profile');
 });
+
+
+Route::prefix('admin')->name('admin.')->middleware('auth')->group(function(){
+    Route::resource('bien',AdminController::class);
+});
+
+
 
 Route::middleware('auth')->group(function () {
     Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])->name('logout');

@@ -26,7 +26,7 @@ class User extends Authenticatable
         'ville',
         'profession',
         'identite',
-        'role_id'
+        'admin'
     ];
 
     public function biens(){
