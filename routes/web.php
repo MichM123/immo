@@ -6,8 +6,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BiensController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\AuthenticatedSessionController;
-
-
+use App\Http\Controllers\UserController;
 
 // Route::get('/profil', [ProfileController::class, 'index']);
 
@@ -42,6 +41,7 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     Route::get('/admin/proprietaires',[AdminController::class,'propietaires'])->name('admin.proprietaire');
+    Route::delete('/admin/user/{id}',[UserController::class,'destroy'])->name('admin.deleteuser');
 });
 
 require __DIR__.'/auth.php';

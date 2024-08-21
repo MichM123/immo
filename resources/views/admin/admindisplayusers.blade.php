@@ -1,5 +1,11 @@
 @extends('layouts.appadmin')
 
+@session('status')
+    <div class="alert alert-danger">
+        Vous avez bien supprimer l'utilisateur
+    </div>
+@endsession
+
 @section('content')
     <div class="card">
         <div class="card-header">
@@ -26,10 +32,10 @@
                                 <td>{{ $item->adresse }}</td>
                                 <td>{{ $item->telephone }}</td>
                                 <td>
-                                    <form action="" method="post">
+                                    <form action="{{route('admin.deleteuser',$item->id)}}" method="post">
                                         @csrf
                                         @method('DELETE')
-                                        <button type="submit" class=" btn btn-danger">
+                                        <button type="submit" class=" btn btn-danger" onclick="confirm('Voulez vous vraiment supprimer ce utilisateur?')">
                                             Supprimer
                                         </button>
                                     </form>

@@ -10,7 +10,7 @@ use App\Models\Biens;
 class PageController extends Controller
 {
     public function home(){
-        $biens = Biens::all();
+        $biens = Biens::orderBy('id','desc')->where('accept',1)->paginate(3);
 
         return view('biens.index', compact('biens'));
     }
