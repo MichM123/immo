@@ -15,15 +15,18 @@ return new class extends Migration
             $table->id();
             $table->string('nom');
             $table->string('adresse');
-            $table->string('description');
-            $table->integer('code_postal');
+            $table->unsignedBigInteger('type_id');
             $table->integer('superficie');
+            $table->string('statut');
+            $table->string('description');
             $table->integer('nombre_pieces');
             $table->integer('prix');
-            $table->unsignedBigInteger('type_id');
+            $table->integer('salle_bains');
             $table->unsignedBigInteger('ville_id');
+            $table->string('piscine')->nullable();
+            $table->string('garage')->nullable();
+            $table->string('meuble')->nullable();
             $table->string('document')->nullable();
-            $table->string('statut');
             $table->unsignedBigInteger('user_id');
             $table->timestamps();
 

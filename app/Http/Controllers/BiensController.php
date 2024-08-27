@@ -39,15 +39,18 @@ class BiensController extends Controller
             $bien = Biens::create([
                 'nom' => $request->nom,
                 'adresse' => $request->adresse,
-                'description' => $request->description,
-                'code_postal' => $request->code_postal,
+                'type_id' => $request->type_id,
                 'superficie' => $request->superficie,
+                'statut' => $request->statut,
+                'description' => $request->description,
                 'nombre_pieces' => $request->nombre_pieces,
                 'prix' => $request->prix,
-                'type_id' => $request->type_id,
+                'salle_bains' => $request->salle_bains,
                 'ville_id' => $request->ville_id,
+                'piscine' => $request->piscine,
+                'garage' => $request->garage,
+                'meuble' => $request->meuble,
                 'document' => $DocumentPath,
-                'statut' => $request->statut,
                 'user_id' => Auth::id(),
             ]);
         }
@@ -71,6 +74,14 @@ class BiensController extends Controller
     public function delete(Biens $bien){
         $bien->delete();
         return redirect()->route('profile');
+    }
+
+    public function show($id)
+    {
+        $user = User::findorfail($id);
+        $bien = $user->biens()->with('type_biens')->get();
+        $nombres = $user->biens()->select('type_id',DB::raw('count(*) as total'))->groupedBy('type_id')->with('type_biens')->get();
+        return view('biens.detail' , compact('nombres', 'bien'));
     }
 
 }

@@ -7,8 +7,8 @@
     <div class="info d-flex align-items-center">
       <div class="container">
         <div class="row justify-content-center" data-aos="fade-up" data-aos-delay="100">
-          <div class="col-lg-10 text-center">
-            <h2>Agence immobilière ImmoBenin</h2>
+          <div class="col-lg-12 text-center">
+            <h2>immobilier B-Immo</h2>
             <p>Votre partenaire immobilier au Bénin</p>
             <a href="{{route('mes_biens')}}" class="btn-get-started">Consulter les annonces</a>
           </div>
@@ -45,52 +45,63 @@
 
   </section><!-- /Hero Section -->
 
-  <section id="services" class="services section light-background">
-    <!-- Section Title -->
-    <div class="container section-title" data-aos="fade-up">
-      <h2>Services</h2>
-      <p>Nous nous engageons à offrir un service sécurisé, rapide et efficace pour répondre à tous vos besoins immobiliers. Rejoignez-nous dès aujourd'hui et découvrez la facilité de gérer vos transactions immobilières en ligne.</p>
-    </div><!-- End Section Title -->
-    <div class="container">
-      <div class="row gy-4">
-        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
-          <div class="service-item  position-relative">
-            <div class="icon">
-              <i class="fa-solid fa-mountain-city"></i>
-            </div>
-            <h3>Vente</h3>
-            <p>Vous souhaitez vendre votre bien immobilier ? Notre plateforme vous permet de publier facilement une annonce détaillée, d'inclure des photos attractives, et de toucher un large public d'acheteurs potentiels. Nous vous accompagnons dans chaque étape, de la mise en ligne de l'annonce à la finalisation de la vente.</p>
-            <a href="{{route('about')}}" class="readmore stretched-link">Read more <i class="bi bi-arrow-right"></i></a>
+  <section class="pb-12 pt-20 lg:pb-[90px] lg:pt-[120px]">
+    <div class="container-fluid mx-auto">
+      <div class="-mx-4 flex flex-wrap">
+        <div class="w-full px-4">
+          <div class="container section-title" data-aos="fade-up">
+            <h2>Services</h2>
+            <p class="text-base text-body-color dark:text-dark-6">
+              Nous nous engageons à offrir un service sécurisé, rapide et efficace pour répondre à tous vos besoins immobiliers. Rejoignez-nous dès aujourd'hui et découvrez la facilité de gérer vos transactions immobilières en ligne.
+            </p>
+          </div><!-- End Section Title -->
+        </div>
+      </div>
+      <div class="-mx-4 flex flex-wrap">
+        <div class="w-full px-4 md:w-1/2 lg:w-1/3">
+          <div class="mb-9 rounded-[20px] bg-white p-10 shadow-2 hover:shadow-lg md:px-7 xl:px-10 dark:bg-dark-2">
+          <i class="fa fa-4x fa-heart text-warning mb-3 sr-icons"></i>
+          <h4 class="mb-[14px] text-2xl font-semibold text-dark text-center dark:text-white">
+              Achat/Location
+            </h4>
+            <p class="text-body-color dark:text-dark-6">
+              Pour ceux qui cherchent à louer ou acheter un bien, notre service de location offre une interface intuitive pour gérer vos annonces. Que vous soyez propriétaire d'un appartement, d'une maison ou d'un local commercial, vous pouvez atteindre des locataires potentiels en un clic.
+            </p>
           </div>
-        </div><!-- End Service Item -->
-        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
-          <div class="service-item position-relative">
-            <div class="icon">
-              <i class="fa-solid fa-arrow-up-from-ground-water"></i>
+        </div>
+        <div class="w-full px-4 md:w-1/2 lg:w-1/3">
+          <div class="mb-9 rounded-[20px] bg-white p-10 shadow-2 hover:shadow-lg md:px-7 xl:px-10 dark:bg-dark-2">
+            <div class="mb-8 flex h-[70px] w-[70px] items-center justify-center rounded-2xl">
+            <i class="fa fa-4x fa-newspaper text-warning mb-3 sr-icons"></i>
+
             </div>
-            <h3>Location</h3>
-            <p>Pour ceux qui cherchent à louer un bien, notre service de location offre une interface intuitive pour gérer vos annonces. Que vous soyez propriétaire d'un appartement, d'une maison ou d'un local commercial, vous pouvez atteindre des locataires potentiels en un clic.</p>
-            <a href="{{route('about')}}" class="readmore stretched-link">Read more <i class="bi bi-arrow-right"></i></a>
+            <h4 class="mb-[14px] text-2xl font-semibold text-dark text-center dark:text-white">
+              Vente
+            </h4>
+            <p class="text-body-color dark:text-dark-6">
+            Vous souhaitez vendre votre bien immobilier ? Notre plateforme vous permet de publier facilement une annonce détaillée, d'inclure des photos attractives, et de toucher un large public d'acheteurs potentiels. Nous vous accompagnons dans chaque étape, de la mise en ligne de l'annonce à la finalisation de la vente.
+            </p>
           </div>
-        </div><!-- End Service Item -->
-        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
-          <div class="service-item position-relative">
-            <div class="icon">
-              <i class="fa-solid fa-compass-drafting"></i>
+        </div>
+        <div class="w-full px-4 md:w-1/2 lg:w-1/3">
+          <div class="mb-9 rounded-[20px] bg-white p-10 shadow-2 hover:shadow-lg">
+            <div class="mb-8 flex h-[70px] w-[70px] items-center justify-center rounded-2xl">
+              <i class="fa fa-4x fa-paper-plane text-warning d-center mb-3 sr-icons"></i>
             </div>
-            <h3>Publication</h3>
-            <p>Vous êtes un professionnel de l'immobilier ou un particulier souhaitant diffuser une annonce ? Notre plateforme vous offre la possibilité de publier vos offres avec un accès à un large réseau de visiteurs. Grâce à nos outils de promotion et de visibilité, vos annonces bénéficient d'une mise en avant optimale pour attirer l'attention de l'audience cible.</p>
-            <a href="{{route('about')}}" class="readmore stretched-link">Read more <i class="bi bi-arrow-right"></i></a>
+            <h4 class="mb-[14px] text-2xl font-semibold text-dark text-center dark:text-white">
+              Publications
+            </h4>
+            <p class="text-body-color dark:text-dark-6">
+              Vous êtes un professionnel de l'immobilier ou un particulier souhaitant diffuser une annonce ? Notre plateforme vous offre la possibilité de publier vos offres avec un accès à un large réseau de visiteurs. Grâce à nos outils de promotion et de visibilité, vos annonces bénéficient d'une mise en avant optimale pour attirer l'attention de l'audience cible.
+            </p>
           </div>
-        </div><!-- End Service Item -->
+        </div>
       </div>
     </div>
-
-  </section><!-- /Services Section -->
-
+  </section>
   <!-- Featured Properties -->
   <section class="py-16 bg-gray-200">
-    <div class="container mx-auto px-4">
+    <div class="container-fluid mx-auto px-4">
       <h2 class="text-2xl font-semibold mb-4 text-center">À la UNE </h2>
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         <!-- Property Card -->
@@ -100,7 +111,8 @@
               <div id="carousel{{ $bien->id }}" class="carousel slide" data-bs-ride="carousel" data-bs-interval="5000">
                 <div class="carousel-inner">
                   @foreach($bien->images as $index => $image)
-                    <div class="carousel-item @if($index == 0) active @endif">
+                    <div class="image-container carousel-item @if($index == 0) active @endif">
+                      <div class="text-overlay">{{$bien->statut}}</div>
                       <img src="{{asset('storage/' . $image->url)}}" alt="">
                     </div>
                   @endforeach
@@ -117,8 +129,19 @@
             @endif
             <div class="p-4">
               <h3 class="text-xl font-semibold">{{$bien->nom}}</h3>
-              <p class="text-gray-700">{{$bien->nombre_pieces}} Beds • 2 Baths • 1500 sqft</p>
-              <p class="text-gray-900 font-bold mt-2">${{$bien->prix}}/month</p>
+              <p class="text-gray-700">{{$bien->nombre_pieces}} Chambre • {{$bien->salle_bains}} Salles de bains • {{$bien->superficie}} m² {{$bien->created_at->translatedFormat('d F')}}</p>
+              <p class="text-gray-900 font-bold mt-2">{{$bien->prix}} Francs/month</p>
+              <div class="meta d-flex align-items-center">
+                <div class="d-flex align-items-center">
+                  <a href="profile.annonceur"><i class="bi bi-person"></i> <span class="ps-2">{{$bien->user->nom}} {{$bien->user->prenom}}</span></a>
+                </div>
+                <span class="px-3 text-black-50">/</span>
+                <div class="d-flex align-items-center">
+                  <i class="bi bi-folder2"></i> <span class="ps-2">{{$bien->user->profession}}</span>
+                </div>
+              </div>
+              <hr>
+              <a href="{{route('detail', ['id' => $bien->id])}}" class="readmore stretched-link"><span>Read More</span><i class="bi bi-arrow-right"></i></a>
             </div>
           </div>
         @endforeach

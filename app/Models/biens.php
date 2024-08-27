@@ -11,15 +11,18 @@ class Biens extends Model
     protected $fillable = [
         'nom',
         'adresse',
-        'description',
-        'code_postal',
+        'type_id',
         'superficie',
+        'statut',
+        'description',
         'nombre_pieces',
         'prix',
-        'type_id',
+        'salle_bains',
         'ville_id',
+        'piscine',
+        'garage',
+        'meuble',
         'document',
-        'statut',
         'user_id',
     ];
 
@@ -31,7 +34,7 @@ class Biens extends Model
         return $this->hasMany(Annonce::class, 'biens_id');
     }
 
-    public function User(){
+    public function user(){
         return $this->belongsTo(User::class);
     }
     public function type_biens(){

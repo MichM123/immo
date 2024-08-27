@@ -40,6 +40,9 @@
               <li class="nav-item">
                 <a class="nav-link" id="profile-tab" data-toggle="tab" href="#gallery" role="tab" aria-controls="profile" aria-selected="false">Mes Biens</a>
               </li>
+              <li class="nav-item">
+                <a class="nav-link btn-primary" href="{{route('home')}}">Accueil</a>
+              </li>
             </ul>
         <div class="tab-content" id="myTabContent">
             <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
@@ -100,7 +103,7 @@
                         <div class="row no-margin">
                             <div class="col-lg-6 no-padding">
 
-                                <table class="addrss-list">
+                                <table class="address-list">
                                     <tbody>
                                         <tr>
                                           <th>Position</th>
@@ -203,48 +206,46 @@
                         @endforeach
                     @endif
                 </div>
-                <!-- Modal de confirmation de suppression -->
-                <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
-                    <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="deleteModalLabel">Confirmation de suppression</h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                            <div class="modal-body">
-                                Êtes-vous sûr de vouloir supprimer ce bien ?
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
-                                <form id="deleteForm" action="{{route('delete', $biens)}}" method="POST">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button type="submit" class="btn btn-danger">Supprimer</button>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <script>
-                    $('#deleteModal').on('show.bs.modal', function (event) {
-                        var button = $(event.relatedTarget) // Bouton qui a déclenché le modal
-                        var bienId = button.data('id') // Extraire l'information des attributs data-*
-                        var form = $('#deleteForm')
-                        form.attr('action', '/biens/' + bienId)
-                    })
-                </script>
             </div>
         </div>
     </div>
+    <!-- Modal de confirmation de suppression -->
+    <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="deleteModalLabel">Confirmation de suppression</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    Êtes-vous sûr de vouloir supprimer ce bien ?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
+                    <form id="deleteForm" action="{{route('delete', $bien)}}" method="POST">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="btn btn-danger">Supprimer</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        $('#deleteModal').on('show.bs.modal', function (event) {
+            var button = $(event.relatedTarget) // Bouton qui a déclenché le modal
+            var bienId = button.data('id') // Extraire l'information des attributs data-*
+            var form = $('#deleteForm')
+            form.attr('action', '/biens/' + bienId)
+        })
+    </script>
     <script>
         document.getElementById('dropdownButton').addEventListener('click', function () {
             var menu = document.getElementById('dropdownMenu');
             menu.classList.toggle('hidden');
         });
-
         window.addEventListener('click', function(e) {
             var menu = document.getElementById('dropdownMenu');
             var button = document.getElementById('dropdownButton');

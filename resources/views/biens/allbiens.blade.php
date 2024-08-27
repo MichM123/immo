@@ -5,7 +5,7 @@
         <div class="absolute inset-0 bg-black opacity-50"></div>
         <div class="relative container mx-auto px-4 h-full flex items-center justify-center">
             <div class=" text-center text-white p-8">
-                <form class="pt-4 mt-5 space-y-4" method="post" action="#">
+                <form class="pt-4 mt-5 space-y-4" method="get" action="{{route('mes_biens')}}">
                     <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
                         <div>
                         <label for="type_id" class="mt-1 block text-sm font-medium text-black-500">Type</label>
@@ -34,19 +34,19 @@
                         </select>
                         </div>
                         <div>
-                            <label for="prix" class="block text-sm font-medium text-white-500">Prix Min</label>
-                            <input type="number" id="prix" class="mt-1 text-black block w-full py-2 px-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" placeholder="Prix Min">
+                            <label for="prix_min" class="block text-sm font-medium text-white-500">Prix Min</label>
+                            <input type="number" id="prix_min" value ="{{ request('prix_min')}}" class="mt-1 text-black block w-full py-2 px-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" placeholder="Prix Min">
                         </div>
                     </div>
                     <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
                         
                         <div>
-                        <label for="prix" class="block text-sm font-medium text-white-200">Prix Max</label>
-                        <input type="number" id="prix" class="mt-1 text-black block w-full py-2 px-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" placeholder="Prix Max">
+                        <label for="prix_max" class="block text-sm font-medium text-white-200">Prix Max</label>
+                        <input type="number" id="prix_max" value ="{{ request('prix_max')}}" class="mt-1 text-black block w-full py-2 px-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" placeholder="Prix Max">
                         </div>
                         <div>
-                        <label for="id" class="block text-sm font-medium text-white-200">N° ID</label>
-                        <input type="text" id="id" class="mt-1 text-black block w-full py-2 px-3 border border-gray-200 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" placeholder="N° ID">
+                        <label for="superficie_min" class="block text-sm font-medium text-white-200">Superficie</label>
+                        <input type="number" id="superficie_min" value ="{{ request('superficie_min')}}" class="mt-1 text-black block w-full py-2 px-3 border border-gray-200 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" placeholder="N° ID">
                         </div>
                         <div class="flex items-end">
                         <button type="submit" class="w-full py-2 px-4 bg-red-600 text-white font-semibold rounded-md shadow-sm hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500">Rechercher Un Bien</button>
@@ -56,6 +56,51 @@
             </div>
         </div>
     </section>
+    <section id="blog-posts" class="blog-posts section">
+        <div class="container">
+            <div class="row gy-4">
+                @foreach($biens as $bien)
+                    <div class="col-lg-4">
+                        <article>
+                            <div class="post-img">
+                                @if($bien->images->count() > 0)
+                                    <div id="carousel{{ $bien->id }}" class="carousel slide" data-bs-ride="carousel" data-bs-interval="5000">
+                                        <div class="carousel-inner">
+                                        @foreach($bien->images as $index => $image)
+                                            <div class="image-container carousel-item @if($index == 0) active @endif">
+                                            <div class="text-overlay">{{$bien->statut}}</div>
+                                            <img src="{{asset('storage/' . $image->url)}}" alt="" class="img-fluid">
+                                            </div>
+                                        @endforeach
+                                        </div>         
+                                        <a class="carousel-control-prev" href="#hero-carousel{{ $bien->id }}" role="button" data-bs-slide="prev">
+                                        <span class="carousel-control-prev-icon bi bi-chevron-left" aria-hidden="true"></span>
+                                        </a>
+
+                                        <a class="carousel-control-next" href="#hero-carousel{{ $bien->id }}" role="button" data-bs-slide="next">
+                                        <span class="carousel-control-next-icon bi bi-chevron-right" aria-hidden="true"></span>
+                                        </a>
+                                    </div>
+                                @endif
+                            </div>
+                            <p class="post-category">{{Auth::user()->profession}}</p>
+                            <h2 class="title">
+                            <a href="blog-details.html">{{$bien->nom}}</a>
+                            </h2>
+                            <div class="d-flex align-items-center">
+                            <img src="{{asset('image/2.webp')}}" alt="" class="img-fluid post-author-img flex-shrink-0">
+                            <div class="post-meta">
+                                <p class="post-author">{{Auth::user()->nom}} {{Auth::user()->prenom}}</p>      
+                                <time datetime="2022-01-01">Jan 1, 2022</time>
+                            </div>
+                            </div>
+                        </article>
+                    </div><!-- End post list item -->
+                @endforeach
+            </div>
+        </div>
+    </section><!-- /Blog Posts Section -->
+
   <!-- Listings Section -->
     <section class="py-16">
         <div class="container mx-auto px-4">
