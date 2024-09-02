@@ -39,6 +39,7 @@ class StoreAnnonceRequest extends FormRequest
             'document' => 'required|mimes:pdf|max:2048',
             'type' => 'required',
             'images.*' => 'required|mimes:jpeg,jpg,png,webp|max:2048',
+            'accepted' => 'boolean'
         ];
     }
 }

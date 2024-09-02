@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Models\User;
 use App\Models\users;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
 
 class UserController extends Controller
 {
@@ -60,6 +62,11 @@ class UserController extends Controller
      */
     public function destroy(string $id)
     {
-       
+        if (! Gate::allows('acces-admin')) {
+           abort('403'); 
+        }
+      $user = User::findOrfail($id);
+      $user->delete();
+      return redirect()->route('admin.admindisplayusers)->with('success','L\'utilisateur a bien été supprimer'); 
     }
 }

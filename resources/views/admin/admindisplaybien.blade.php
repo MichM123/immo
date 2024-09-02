@@ -37,19 +37,6 @@
                 </div>
 
                 <div class="accordion-item">
-                    <h2 class="accordion-header" id="headingCodePostal">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseCodePostal" aria-expanded="false" aria-controls="collapseCodePostal">
-                            Code Postal
-                        </button>
-                    </h2>
-                    <div id="collapseCodePostal" class="accordion-collapse collapse" aria-labelledby="headingCodePostal" data-bs-parent="#hospital-details">
-                        <div class="accordion-body">
-                            {{ $bien->code_postal }}
-                        </div>
-                    </div>
-                </div>
-
-                <div class="accordion-item">
                     <h2 class="accordion-header" id="headingAdresse">
                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseAdresse" aria-expanded="false" aria-controls="collapseAdresse">
                             Adresse

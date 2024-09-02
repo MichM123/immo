@@ -24,6 +24,7 @@ class Biens extends Model
         'meuble',
         'document',
         'user_id',
+        'accept'
     ];
 
     public function images(){

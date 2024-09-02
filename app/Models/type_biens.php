@@ -10,7 +10,7 @@ class type_biens extends Model
     use HasFactory;
 
     protected $fillable = [
-        'nom',
+        'nom'
     ];
 
     public function biens(){

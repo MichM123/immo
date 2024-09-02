@@ -226,7 +226,7 @@
             </li>
 
             <li>
-              <a class="dropdown-item d-flex align-items-center" href="{{route('admin.profil')}}">
+              <a class="dropdown-item d-flex align-items-center" href="#">
                 <i class="bi bi-person"></i>
                 <span>My Profile</span>
               </a>
@@ -279,7 +279,7 @@
     <ul class="sidebar-nav" id="sidebar-nav">
 
       <li class="nav-item">
-        <a class="nav-link " href="index.html">
+        <a class="nav-link " href="{{route('admin.accueil')}}">
           <i class="bi bi-grid"></i>
           <span>Dashboard</span>
         </a>
@@ -291,17 +291,17 @@
         </a>
         <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
-            <a href="components-alerts.html">
+            <a href="#">
               <i class="bi bi-circle"></i><span>Créer un nouveau</span>
             </a>
           </li>
           <li>
-            <a href="components-accordion.html">
+            <a href="#">
               <i class="bi bi-circle"></i><span>Tous les controlleur</span>
             </a>
           </li>
           <li>
-            <a href="components-badges.html">
+            <a href="#">
               <i class="bi bi-circle"></i><span>Supprimer</span>
             </a>
           </li>
@@ -314,7 +314,7 @@
         </a>
         <ul id="forms-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
-            <a href="components-accordion.html">
+            <a href="{{ route('admin.proprietaire')}}">
               <i class="bi bi-circle"></i><span>Tous les Propriétaires</span>
             </a>
           </li>
@@ -332,7 +332,7 @@
         </a>
         <ul id="tables-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
-            <a href="tables-general.html">
+            <a href="{{ route('admin.bien.index')}}">
               <i class="bi bi-circle"></i><span>Tous les biens</span>
             </a>
           </li>

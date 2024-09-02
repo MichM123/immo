@@ -17,7 +17,9 @@ class AdminController extends Controller
         if (! Gate::allows('acces-admin')) {
             abort('403');
         }
-        $biens = Biens::with('User')->orderBy('id','asc')->paginate(15);
+        $biens = Biens::with('User')->orderBy('id','desc')->paginate(15);
+
+        
 
         return view('admin.adminbiens',[
             'biens'=>$biens
@@ -85,21 +87,15 @@ class AdminController extends Controller
         //
     }
 
-    public function proprietaires() {
+    public function propietaires() {
         if (! Gate::allows('acces-admin')) {
             abort('403');
         }
 
-        $users = User::orderBy('id','asc')->where('admin',0)->paginate(15);
-        return view('admin.adminusers',[
+        $users = User::orderBy('id','desc')->where('admin',0)->paginate(15);
+
+        return view('admin.admindisplayusers',[
             'users'=>$users
         ]);
-    }
-    
-    public function accueil() {
-        if (! Gate::allows('acces-admin')) {
-            abort('403');
-        }
-        return view('admin.index');
     }
 }

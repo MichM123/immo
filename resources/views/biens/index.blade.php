@@ -45,8 +45,50 @@
 
   </section><!-- /Hero Section -->
 
-  <section class="pb-12 pt-20 lg:pb-[90px] lg:pt-[120px]">
-    <div class="container-fluid mx-auto">
+  <section class="section novi-background section-md text-center">
+    <div class="container">
+      <h3 class="fw-bold wow-outer"><span class="wow slideInDown">Populaire en ce moment</span></h3>
+      <div class="row row-lg-50 row-35 offset-top-2">
+        @foreach ($biens as $bien)
+          <div class="col-md-6 wow-outer">
+            <!-- Post Modern-->
+            <article class="post-modern wow slideInLeft">
+              <a class="post-modern-media" href="#">
+                @if($bien->images->count() > 0)
+                  <div id="carousel{{ $bien->id }}" class="carousel slide" data-bs-ride="carousel" data-bs-interval="5000">
+                    <div class="carousel-inner">
+                      @foreach($bien->images as $index => $image)
+                        <div class="image-container carousel-item @if($index == 0) active @endif">
+                          <div class="text-overlay">{{$bien->statut}}</div>
+                          <img src="{{asset('storage/' . $image->url)}}" alt="" width="500" height="300"/>
+                        </div>
+                      @endforeach
+                    </div>    
+                    <a class="carousel-control-prev" href="#hero-carousel{{ $bien->id }}" role="button" data-bs-slide="prev">
+                      <span class="carousel-control-prev-icon bi bi-chevron-left" aria-hidden="true"></span>
+                    </a>
+                    <a class="carousel-control-next" href="#hero-carousel{{ $bien->id }}" role="button" data-bs-slide="next">
+                      <span class="carousel-control-next-icon bi bi-chevron-right" aria-hidden="true"></span>
+                    </a>
+                  </div>
+                @endif
+              </a>
+              <h4 class="post-modern-title"><a class="post-modern-title" href="#">{{$bien->nom}}</a></h4>
+              <ul class="post-modern-meta">
+                <li><a class="button-winona" href="#">$ {{$bien->prix}}</a></li>
+                <li>{{$bien->superficie}} m²</li>
+                <li>{{$bien->nombre_chambres}} chambre</li>
+              </ul>
+              <p>A comfortable residential property located in a quiet and cozy area.</p>
+            </article>
+          </div>
+        @endforeach
+        <div class="col-md-12 wow-outer"><a class="btn btn-primary button-winona btn-md" href="#">view More properties</a></div>
+      </div>
+    </div>
+  </section>
+  <section class="section novi-background section-lg bg-gray-100">
+    <div class="container">
       <div class="-mx-4 flex flex-wrap">
         <div class="w-full px-4">
           <div class="container section-title" data-aos="fade-up">
@@ -57,6 +99,59 @@
           </div><!-- End Section Title -->
         </div>
       </div>
+      <div class="row row-30">
+        <div class="col-sm-6 col-lg-4 wow-outer">
+          <!-- Box Minimal-->
+          <article class="box-minimal">
+            <div class="box-chloe__icon novi-icon linearicons-user wow fadeIn"></div>
+            <div class="box-minimal-main wow-outer">
+              <h4 class="box-minimal-title wow slideInDown">Qualified Employees</h4>
+              <p class="wow fadeInUpSmall">Pour ceux qui cherchent à louer ou acheter un bien, notre service de location offre une interface intuitive pour gérer vos annonces. Que vous soyez propriétaire d'un appartement, d'une maison ou d'un local commercial, vous pouvez atteindre des locataires potentiels en un clic.</p>
+            </div>
+          </article>
+        </div>
+        <div class="col-sm-6 col-lg-4 wow-outer">
+          <!-- Box Minimal-->
+          <article class="box-minimal">
+            <div class="box-chloe__icon novi-icon linearicons-bubble-text wow fadeIn" data-wow-delay=".1s"></div>
+            <div class="box-minimal-main wow-outer">
+              <h4 class="box-minimal-title wow slideInDown" data-wow-delay=".1s">Vente</h4>
+              <p class="wow fadeInUpSmall" data-wow-delay=".1s">Vous souhaitez vendre votre bien immobilier ? Notre plateforme vous permet de publier facilement une annonce détaillée, d'inclure des photos attractives, et de toucher un large public d'acheteurs potentiels. Nous vous accompagnons dans chaque étape, de la mise en ligne de l'annonce à la finalisation de la vente.</p>
+            </div>
+          </article>
+        </div>
+        <div class="col-sm-6 col-lg-4 wow-outer">
+          <!-- Box Minimal-->
+          <article class="box-minimal">
+            <div class="box-chloe__icon novi-icon linearicons-star wow fadeIn" data-wow-delay=".2s"></div>
+            <div class="box-minimal-main wow-outer">
+              <h4 class="box-minimal-title wow slideInDown" data-wow-delay=".2s">Publications</h4>
+              <p class="wow fadeInUpSmall" data-wow-delay=".2s">Vous êtes un professionnel de l'immobilier ou un particulier souhaitant diffuser une annonce ? Notre plateforme vous offre la possibilité de publier vos offres avec un accès à un large réseau de visiteurs. Grâce à nos outils de promotion et de visibilité, vos annonces bénéficient d'une mise en avant optimale pour attirer l'attention de l'audience cible.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Services-->
+  <section class="section novi-background section-lg text-center">
+    <div class="container">
+      <h3 class="text-uppercase">Residential property categories</h3>
+      <p><span class="text-width-1">At our agency, we work with various types of residential real estate property. You can find out more about our properties by browsing our website.</span></p>
+      <div class="row row-35 row-xxl-70 offset-top-2">
+        
+          <div class="col-sm-6 col-lg-3">
+          <!-- Thumbnail Light-->
+          <article class="thumbnail-light"><a class="thumbnail-light-media" href="#"><img class="thumbnail-light-image" src="images/service-thumbnail-1-270x300.jpg" alt="" width="270" height="300"/></a>
+            <h4 class="thumbnail-light-title"><a href="#">nom</a></h4>
+          </article>
+        </div>
+        <div class="col-md-12 wow-outer"><a class="button button-primary button-winona button-md" href="#">view all properties</a></div>
+      </div>
+    </div>
+  </section>
+  <section class="pb-12 pt-20 lg:pb-[90px] lg:pt-[120px]">
+    
       <div class="-mx-4 flex flex-wrap">
         <div class="w-full px-4 md:w-1/2 lg:w-1/3">
           <div class="mb-9 rounded-[20px] bg-white p-10 shadow-2 hover:shadow-lg md:px-7 xl:px-10 dark:bg-dark-2">
@@ -76,23 +171,10 @@
 
             </div>
             <h4 class="mb-[14px] text-2xl font-semibold text-dark text-center dark:text-white">
-              Vente
+              
             </h4>
             <p class="text-body-color dark:text-dark-6">
             Vous souhaitez vendre votre bien immobilier ? Notre plateforme vous permet de publier facilement une annonce détaillée, d'inclure des photos attractives, et de toucher un large public d'acheteurs potentiels. Nous vous accompagnons dans chaque étape, de la mise en ligne de l'annonce à la finalisation de la vente.
-            </p>
-          </div>
-        </div>
-        <div class="w-full px-4 md:w-1/2 lg:w-1/3">
-          <div class="mb-9 rounded-[20px] bg-white p-10 shadow-2 hover:shadow-lg">
-            <div class="mb-8 flex h-[70px] w-[70px] items-center justify-center rounded-2xl">
-              <i class="fa fa-4x fa-paper-plane text-warning d-center mb-3 sr-icons"></i>
-            </div>
-            <h4 class="mb-[14px] text-2xl font-semibold text-dark text-center dark:text-white">
-              Publications
-            </h4>
-            <p class="text-body-color dark:text-dark-6">
-              Vous êtes un professionnel de l'immobilier ou un particulier souhaitant diffuser une annonce ? Notre plateforme vous offre la possibilité de publier vos offres avec un accès à un large réseau de visiteurs. Grâce à nos outils de promotion et de visibilité, vos annonces bénéficient d'une mise en avant optimale pour attirer l'attention de l'audience cible.
             </p>
           </div>
         </div>
@@ -100,58 +182,6 @@
     </div>
   </section>
   <!-- Featured Properties -->
-  <section class="py-16 bg-gray-200">
-    <div class="container-fluid mx-auto px-4">
-      <h2 class="text-2xl font-semibold mb-4 text-center">À la UNE </h2>
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        <!-- Property Card -->
-        @foreach($biens as $bien)
-          <div class="bg-white shadow-lg rounded-lg overflow-hidden">
-            @if($bien->images->count() > 0)
-              <div id="carousel{{ $bien->id }}" class="carousel slide" data-bs-ride="carousel" data-bs-interval="5000">
-                <div class="carousel-inner">
-                  @foreach($bien->images as $index => $image)
-                    <div class="image-container carousel-item @if($index == 0) active @endif">
-                      <div class="text-overlay">{{$bien->statut}}</div>
-                      <img src="{{asset('storage/' . $image->url)}}" alt="">
-                    </div>
-                  @endforeach
-                </div>
-                
-                <a class="carousel-control-prev" href="#hero-carousel{{ $bien->id }}" role="button" data-bs-slide="prev">
-                  <span class="carousel-control-prev-icon bi bi-chevron-left" aria-hidden="true"></span>
-                </a>
-
-                <a class="carousel-control-next" href="#hero-carousel{{ $bien->id }}" role="button" data-bs-slide="next">
-                  <span class="carousel-control-next-icon bi bi-chevron-right" aria-hidden="true"></span>
-                </a>
-              </div>
-            @endif
-            <div class="p-4">
-              <h3 class="text-xl font-semibold">{{$bien->nom}}</h3>
-              <p class="text-gray-700">{{$bien->nombre_pieces}} Chambre • {{$bien->salle_bains}} Salles de bains • {{$bien->superficie}} m² {{$bien->created_at->translatedFormat('d F')}}</p>
-              <p class="text-gray-900 font-bold mt-2">{{$bien->prix}} Francs/month</p>
-              <div class="meta d-flex align-items-center">
-                <div class="d-flex align-items-center">
-                  <a href="profile.annonceur"><i class="bi bi-person"></i> <span class="ps-2">{{$bien->user->nom}} {{$bien->user->prenom}}</span></a>
-                </div>
-                <span class="px-3 text-black-50">/</span>
-                <div class="d-flex align-items-center">
-                  <i class="bi bi-folder2"></i> <span class="ps-2">{{$bien->user->profession}}</span>
-                </div>
-              </div>
-              <hr>
-              <a href="{{route('detail', ['id' => $bien->id])}}" class="readmore stretched-link"><span>Read More</span><i class="bi bi-arrow-right"></i></a>
-            </div>
-          </div>
-        @endforeach
-        <!-- Repeat the property card for more listings -->
-      </div>
-      <div class="text-center mt-8">
-        <a href="#" class="bg-red-500 text-white py-2 px-4 rounded">Voir Plus d'Annonces</a>
-      </div>
-    </div>
-  </section>
 
   <!-- Testimonials Section -->
   <section id="testimonials" class="testimonials section">
@@ -399,4 +429,4 @@
 
   </section><!-- /Recent Blog Posts Section -->
 
-@endSection
+@endSection                                                     

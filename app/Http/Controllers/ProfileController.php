@@ -20,10 +20,11 @@ class ProfileController extends Controller
 
     public function show(){
         $user = Auth::user();
-        $biens = Biens::where('user_id',$user->id)->get();
+        $biens = Biens::where('user_id',$user->id)->where('accept',1)->get();
         $images = Images::all();
         return view('profile.edit', compact('user', 'biens', 'images'));
     }
+    
     public function edit(Request $request): View
     {
         return view('profile.profile', [

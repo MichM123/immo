@@ -15,8 +15,9 @@ class BiensController extends Controller
 {
     public function index()
     {
-        $biens = Biens::with('images')->get();
-        return view('biens.index', compact('biens'));
+        $types = type_biens::all();
+        $biens = Biens::with('images')->get()->where('accept',1);
+        return view('biens.index', compact('types','biens'));
     }
     public function create()
     {
@@ -24,7 +25,7 @@ class BiensController extends Controller
         $villes = villes::all();
         return view('biens.create', compact('types', 'villes'));
     }
-    public function edit(){
+    public function edit( string $id){
         $bien = Biens::find($id);
         $types = type_biens::all();
         $villes = villes::all();
@@ -34,6 +35,8 @@ class BiensController extends Controller
     }
     public function store(StoreAnnonceRequest $request)
     {
+        $validated = $request->validated();
+
         if ($request->hasFile('document')) {
             $DocumentPath = $request->file('document')->store('documents', 'public');
             $bien = Biens::create([
@@ -53,9 +56,15 @@ class BiensController extends Controller
                 'document' => $DocumentPath,
                 'user_id' => Auth::id(),
             ]);
+            $documentname = time() . '_' . $request->file('document')->getClientOriginalName();
+            $DocumentPath = $request->file('document')->storeAs('documents',$documentname ,'public');
+            $validated['document'] = $DocumentPath;
+            $validated['user_id'] =Auth::user()->id;
+
+            $bien = Biens::create($validated);
         }
             
-        if($bien){
+        if($bien && $bien->accept=1){
             $annonces = $bien->annonces()->create([
                 'type' => $request->type,
             ]);
